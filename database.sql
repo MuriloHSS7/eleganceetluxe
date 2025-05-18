@@ -1,3 +1,8 @@
+
+-- Tabelas
+
+-- CADASTRO DE PRODUTOS
+
 CREATE DATABASE eleganceetluxe;
 USE eleganceetluxe;
 
@@ -13,3 +18,23 @@ CREATE TABLE produtos (
     valor_max DECIMAL(10, 2),           -- Valor máximo de venda
     descricao TEXT                      -- Descrição detalhada do produto
 );
+
+
+-- CADASTRO DE PESSOAS
+
+CREATE DATABASE eleganceetluxe;
+
+
+CREATE TABLE cadastro_pessoas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    sobrenome VARCHAR(50) NOT NULL,
+    sexo ENUM('Masculino', 'Feminino') NOT NULL,
+    data_nascimento DATE NOT NULL,
+    ddd CHAR(2) NOT NULL,
+    numero_celular CHAR(9) NOT NULL,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+select * from cadastro_pessoas;
