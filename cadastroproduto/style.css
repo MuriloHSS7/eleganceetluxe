@@ -5,14 +5,18 @@ body {
     background-color: #f0fff0;
 }
 
+/* Cabeçalho */
 header {
-    text-align: center;
     padding: 20px 0;
     background-color: #d3e0ea;
 }
 
 header img {
-    width: 100px;
+    width: 100px; /* Define a largura da imagem */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distocer */
+    border-radius: 50%; /* Transforma a imagem em um círculo */
+    margin-left: 20px;
+    display: block;
 }
 
 main {
@@ -22,6 +26,15 @@ main {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.caixadescricao{
+    width: 100%; /* Ocupa toda a largura disponível */
+    min-height: 50px; /* Altura mínima */
+    font-size: 16px;
+    border: 1px solid #ccc; /* Borda simples */
+    border-radius: 5px; /* Bordas arredondadas */
+    
 }
 
 .form-group {
@@ -78,10 +91,10 @@ button:hover {
 }
 
 footer {
-    text-align: center;
-    background-color: #d3d3d3;
-    margin-top: 220px;
-    position: fixed;
+    background-color: darkgoldenrod; /* Cor de fundo do rodapé */
+    padding: 52px;
+    text-align: center; /* Alinhamento dos textos no centro */
+    bottom: 0;
 }
 
 .help-button {

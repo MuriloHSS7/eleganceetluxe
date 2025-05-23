@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <img src="logo.png" alt="Logo da Empresa">
+        <img src="/imagens/logocasamento.png" alt="Logo da Empresa">
     </header>
     <main>
         <section class="form-container">
@@ -25,41 +25,31 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Código produto</label>
-                        <input type="text" value="123456789">
+                        <input type="text" id="codigo" placeholder="ABC123">
                     </div>
                     <div class="form-group">
                         <label>Unidade</label>
-                        <input type="text" value="UN">
+                        <input type="number" id="unidade" placeholder="UN">
                     </div>
                     <div class="form-group">
                         <label>Preço custo</label>
-                        <input type="number" value="0.00">
-                    </div>
-                    <div class="form-group">
-                        <label>Lucro (%)</label>
-                        <input type="number" value="0.00">
-                    </div>
-                    <div class="form-group">
-                        <label>Valor Min.</label>
-                        <input type="number" value="0.00">
-                    </div>
-                    <div class="form-group">
-                        <label>Valor Max.</label>
-                        <input type="number" value="0.00">
+                        <input type="number" id="preco" placeholder="0.00">
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Descrição do Produto</label>
-                    <input type="text">
+                    <textarea class="caixadescricao" placeholder="Digite a descrição do produto..."></textarea>
                 </div>
 
                 <div class="image-preview">
                     <label>Imagem do Produto</label>
                     <img src="dress.jpg" alt="Imagem do Produto">
                 </div>
-                <button type="submit">Salvar</button>
+                <br><!-- Pulando linha -->
+                <button type="submit">Salvar</button> <!-- Botão de salvar no estoque-->
             </form>
         </section>
+        <script src="/JS/unidade.js"></script>
     </main>
     <footer>
         <h2>CENTRAL DE RELACIONAMENTO</h2>
