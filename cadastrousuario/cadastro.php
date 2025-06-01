@@ -58,7 +58,7 @@
             color: white;
             font-size: 24px;
         }
-    </style>
+    </style>    
 </head>
 <body class="bg-gray-100 font-sans">
     <!-- Cabeçalho com fundo verde claro -->
@@ -117,9 +117,6 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 text-right">
-                        <button type="submit" name="submit" class="bg-gray-300 text-gray-700 rounded-full px-6 py-2 hover:bg-gray-400">CONTINUAR</button>
-                    </div>
                 </form>
             </div>
 
@@ -128,7 +125,9 @@
                 <div>
                     <h2 class="text-lg font-bold text-gray-800">SUA CONTA</h2>
                     <p class="mt-2 text-sm text-gray-700">Seu e-mail</p>
-                    <p class="text-sm font-medium text-gray-800">exemplo@gmail.com</p>
+                    
+                    <input type="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Email">
+
                     <p class="mt-4 text-sm text-gray-700">Senha</p>
                     <input type="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Senha">
 
@@ -145,6 +144,10 @@
                         </label>
                     </div>
                 </div>
+
+                    <div class="mt-6 text-right">
+                        <button type="submit" name="submit" class="bg-gray-300 text-gray-700 rounded-full px-6 py-2 hover:bg-gray-400">CONTINUAR</button>
+                    </div>
 
                 <div class="mt-6">
                     <h2 class="text-lg font-bold text-gray-800">CENTRAL DE RELACIONAMENTO</h2>
