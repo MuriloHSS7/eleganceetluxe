@@ -58,6 +58,38 @@
             color: white;
             font-size: 24px;
         }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn.green {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e9ecef;
+        }
+
+        .footer-content {
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+        font-size: 12px;
+        color: #666;
+        }
+
     </style>    
 </head>
 <body class="bg-gray-100 font-sans">
@@ -149,28 +181,21 @@
                         <button type="submit" name="submit" class="bg-gray-300 text-gray-700 rounded-full px-6 py-2 hover:bg-gray-400">CONTINUAR</button>
                     </div>
 
-                <div class="mt-6">
-                    <h2 class="text-lg font-bold text-gray-800">CENTRAL DE RELACIONAMENTO</h2>
-                    <button class="button-green text-white rounded-full px-4 py-2 hover:bg-green-600">TIRE SUAS DÚVIDAS</button>
-                    <p class="mt-4 text-xs text-gray-600">
-                        copyright © 2025 - www.elegancetluxe.com.br. Todos os direitos reservados. O conteúdo, design e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa.
-                    </p>
-                </div>
+
             </div>
         </div>
     </div>
 
     <!-- Rodapé -->
-    <div class="footer-bg text-center py-4 mt-4 text-sm text-gray-700">
-        CENTRAL DE RELACIONAMENTO
-        <button class="button-green text-white rounded-full px-4 py-2 ml-2 hover:bg-green-600">TIRE SUAS DÚVIDAS</button>
+    <footer>   
+        <div class="footer-content">
+            <p>CENTRAL DE RELACIONAMENTO</p>
+            <button class="btn green">TIRE SUAS DÚVIDAS<br>Precisa de ajuda?</button>
+        </div>
         <p class="mt-2">
-            Precisa de ajuda? Entre em contato através do nosso canal de atendimento ao cliente em www.elegancetluxe.com.br ou pelo telefone (11) 1234-5678.
+            copyright © 2025 - www.Eleganceetux.com.br, Todos os direitos reservados. O conteúdo, design e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por escrito dos detentores dos direitos.
         </p>
-        <p class="mt-2">
-            copyright © 2025 - www.elegancetluxe.com.br. Todos os direitos reservados. O conteúdo, design e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos autoriais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa.
-        </p>
-    </div>
+    </footer>
 </body>
 </html>
 
