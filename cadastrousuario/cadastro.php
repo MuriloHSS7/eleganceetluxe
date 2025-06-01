@@ -152,38 +152,37 @@
                 </form>
             </div>
 
-            <!-- Seção de Contato com contorno preto -->
-            <div class="w-1/3 bg-white p-6 flex flex-col justify-between border border-black">
-                <div>
-                    <h2 class="text-lg font-bold text-gray-800">SUA CONTA</h2>
-                    <p class="mt-2 text-sm text-gray-700">Seu e-mail</p>
-                    
-                    <input type="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Email">
+                <!-- Seção de Contato com contorno preto -->
+                <div class="w-1/3 bg-white p-6 flex flex-col justify-between border border-black">
+                    <div>
+                        <h2 class="text-lg font-bold text-gray-800">SUA CONTA</h2>
+                        <p class="mt-2 text-sm text-gray-700">Seu e-mail</p>
+                        
+                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Email">
 
-                    <p class="mt-4 text-sm text-gray-700">Senha</p>
-                    <input type="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Senha">
+                        <p class="mt-4 text-sm text-gray-700">Senha</p>
+                        <input type="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Senha">
 
-                    <div class="mt-4">
-                        <label class="flex items-center text-sm text-gray-700">
-                            <input type="checkbox" class="mr-2">
-                            Quero receber as novidades por WhatsApp
-                        </label>
+                        <div class="mt-4">
+                            <label class="flex items-center text-sm text-gray-700">
+                                <input type="checkbox" class="mr-2">
+                                Quero receber as novidades por WhatsApp
+                            </label>
+                        </div>
+                        <div class="mt-2">
+                            <label class="flex items-center text-sm text-gray-700">
+                                <input type="checkbox" class="mr-2">
+                                Concordo com o uso dos meus dados para reserva e experiência no site conforme a Política de Privacidade
+                            </label>
+                        </div>
                     </div>
-                    <div class="mt-2">
-                        <label class="flex items-center text-sm text-gray-700">
-                            <input type="checkbox" class="mr-2">
-                            Concordo com o uso dos meus dados para reserva e experiência no site conforme a Política de Privacidade
-                        </label>
-                    </div>
-                </div>
 
                     <div class="mt-6 text-right">
                         <button type="submit" name="submit" class="bg-gray-300 text-gray-700 rounded-full px-6 py-2 hover:bg-gray-400">CONTINUAR</button>
                     </div>
 
-
-            </div>
-        </div>
+                </div>
+        </div>    
     </div>
 
     <!-- Rodapé -->
