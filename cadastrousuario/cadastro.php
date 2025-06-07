@@ -1,107 +1,75 @@
 <?php
-    // Teste de verificação da variavel submit
-    if(isset($_POST['submit'])){
+// Certifique-se que esta lógica PHP está no topo do arquivo cadastro.php
+if(isset($_POST['submit'])){
 
-        
-        // print_r('Nome:' .$_POST['nome']);
-        // print_r('<br>');
-        // print_r('Sobrenome:' .$_POST['sobrenome']);
-        // print_r('<br>');
-        // print_r('Sexo:' .$_POST['genero']);
-        // print_r('<br>');
-        // print_r('Data:' .$_POST['data']);
-        // print_r('<br>');
-        // print_r('DDD:' .$_POST['ddd']);
-        // print_r('<br>');
-        // print_r('Numero:' .$_POST['numero']);
+    include_once('conexaologin.php'); // Inclui o arquivo de conexão
 
+    // Captura dos dados do formulário
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
+    $sexo = $_POST['genero'];
+    $data_nascimento = $_POST['data_nascimento']; // Alterado para corresponder ao name do HTML
+    $ddd = $_POST['ddd'];
+    $numero_celular = $_POST['numero_celular']; // Alterado para corresponder ao name do HTML
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $confirmar_senha = $_POST['confirmar_senha'];
+    $cpf = $_POST['cpf'];
+    $endereco = $_POST['endereco'];
+    $cep = $_POST['cep'];
+    $complemento = $_POST['complemento'];
+    $receber_whatsapp = isset($_POST['receber_whatsapp']) ? 'sim' : 'nao';
+    $aceitar_termos = isset($_POST['aceitar_termos']) ? 'sim' : 'nao';
 
-        include_once('conexaologin.php');
-
-        $nome = $_POST['nome'];
-        $sobrenome = $_POST['sobrenome'];
-        $sexo = $_POST['genero'];
-        $data = $_POST['data'];
-        $ddd = $_POST['ddd'];
-        $numero = $_POST['numero'];
-
-        // as variaveis vão ser passadas para seus devidos campos
-        $result = mysqli_query($conexao, "INSERT INTO cadastro_pessoas(nome,sobrenome,sexo,data_nascimento,ddd,numero_celular) VALUES ('$nome','$sobrenome','$sexo','$data','$ddd','$numero')");
-
+    // Validação de senhas e hash (CRUCIAL!)
+    if ($senha !== $confirmar_senha) {
+        echo "<script>alert('Erro: As senhas não coincidem!'); window.location.href='cadastro.php';</script>";
+        exit();
     }
+
+    // Gerar o hash da senha
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+    // SQL INJECTION PREVENTION (usando Prepared Statements)
+    // A query deve conter os nomes das colunas exatas do seu banco de dados
+    $stmt = $conexao->prepare("INSERT INTO cadastro_pessoas (nome, sobrenome, sexo, data_nascimento, ddd, numero_celular, email, senha, cpf, endereco, cep, complemento, receber_whatsapp, aceitar_termos) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    if ($stmt === false) {
+        die('Erro na preparação da query: ' . $conexao->error);
+    }
+
+    // "ssssssssssssss" significa que todos os 14 parâmetros são strings.
+    // Ajuste se alguma coluna no seu banco for de outro tipo (ex: 'i' para int).
+    $stmt->bind_param("ssssssssssssss", $nome, $sobrenome, $sexo, $data_nascimento, $ddd, $numero_celular, $email, $senha_hash, $cpf, $endereco, $cep, $complemento, $receber_whatsapp, $aceitar_termos);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href='login.php';</script>";
+        // Redireciona para a página de login após o cadastro
+    } else {
+        echo "<script>alert('Erro ao cadastrar: " . $stmt->error . "'); window.location.href='cadastro.php';</script>";
+    }
+
+    $stmt->close();
+    $conexao->close(); // Fechar a conexão com o banco de dados
+}
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Relacionamento</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .header-bg {
-            background-color: #C1E1C1;
-        }
-        .footer-bg {
-            background-color: #D3D3D3;
-        }
-        .button-green {
-            background-color: #A9D6A9;
-        }
-        .logo {
-            width: 60px;
-            height: 60px;
-            background-color: #2F4F2F;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-        }
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
 
-        .btn {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .btn.green {
-            background-color: #28a745;
-            color: #fff;
-        }
-
-
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #e9ecef;
-        }
-
-        .footer-content {
-            margin-bottom: 10px;
-        }
-
-        .copyright {
-        font-size: 12px;
-        color: #666;
-        }
-
-    </style>    
 </head>
-<body class="bg-gray-100 font-sans">
-    <!-- Cabeçalho com fundo verde claro -->
-    <div class="header-bg h-24 flex items-center pl-6">
-        <div class="logo">Logo</div>
-    </div>
 
-    <!-- Container principal -->
+<body>
+    <header style="background-color: #d1e7dd;">
+        <img src="logo.png" alt="Logo" class="logo">
+    </header>
+
     <div class="min-h-screen flex items-center justify-center p-4">
         <div class="bg-white rounded-lg shadow-lg flex w-full max-w-4xl p-4">
-            <!-- Seção do Formulário com contorno preto -->
             <div class="w-2/3 p-6 border border-black">
                 <form action="cadastro.php" method="POST">
                     <p class="text-sm text-gray-600 mb-2">* Campos obrigatórios</p>
@@ -110,91 +78,124 @@
                             <label for="nome" class="block text-sm font-medium text-gray-700">
                                 Nome <span class="text-red-500">*</span>
                             </label>
-                            <input type="text" name="nome" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Nome">
+                            <input type="text" name="nome" id="nome" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Nome" required>
                         </div>
                         <div>
                             <label for="sobrenome" class="block text-sm font-medium text-gray-700">
                                 Sobrenome <span class="text-red-500">*</span>
                             </label>
-                            <input type="text" name="sobrenome" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Sobrenome">
+                            <input type="text" name="sobrenome" id="sobrenome" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Sobrenome" required>
                         </div>
                     </div>
 
                     <div class="mt-4">
                         <label class="block text-sm font-medium text-gray-700">Sexo <span class="text-red-500">*</span></label>
                         <div class="flex space-x-4 mt-1">
-                            <label><input type="radio" name="genero" value="feminino" class="mr-1"> Feminino</label>
+                            <label><input type="radio" name="genero" value="feminino" class="mr-1" required> Feminino</label>
                             <label><input type="radio" name="genero" value="masculino" class="mr-1"> Masculino</label>
-                            <!-- <label><input type="radio" name="genero" value="outro" class="mr-1"> Outro</label> -->
                         </div>
                     </div>
 
-                    <div class="mt-4 grid grid-cols-3 gap-2">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700">
-                                Data de Nascimento <span class="text-red-500">*</span>
-                            <input type="date" name="data" class="mt-1 block w-full border border-gray-300 rounded-md p-2" >
-                        </div>
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium text-gray-700">
+                            Data de Nascimento <span class="text-red-500">*</span>
+                        </label>
+                        <input type="date" name="data_nascimento" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
                     </div>
 
                     <div class="mt-4 grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700">
-                                DDD e Número de Celular <span class="text-red-500">*</span>
+                                DDD <span class="text-red-500">*</span>
                             </label>
-                            <input type="text" name="ddd" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="DDD">
+                            <input type="text" name="ddd" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="DDD" required>
                         </div>
                         <div>
-                            <input type="text" name="numero" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Número">
+                            <label class="block text-sm font-medium text-gray-700">
+                                Número de Celular <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" name="numero_celular" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Número" required>
                         </div>
                     </div>
 
-                </form>
-            </div>
+                    <div class="mt-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700">
+                            Email <span class="text-red-500">*</span>
+                        </label>
+                        <input type="email" name="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Seu e-mail" required>
+                    </div>
 
-                <!-- Seção de Contato com contorno preto -->
-                <div class="w-1/3 bg-white p-6 flex flex-col justify-between border border-black">
-                    <div>
-                        <h2 class="text-lg font-bold text-gray-800">SUA CONTA</h2>
-                        <p class="mt-2 text-sm text-gray-700">Seu e-mail</p>
-                        
-                        <input type="text" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Email">
+                    <div class="mt-4">
+                        <label for="senha" class="block text-sm font-medium text-gray-700">
+                            Senha <span class="text-red-500">*</span>
+                        </label>
+                        <input type="password" name="senha" id="senha" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Senha" required>
+                    </div>
 
-                        <p class="mt-4 text-sm text-gray-700">Senha</p>
-                        <input type="password" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Senha">
+                    <div class="mt-4">
+                        <label for="confirmar_senha" class="block text-sm font-medium text-gray-700">
+                            Confirmar Senha <span class="text-red-500">*</span>
+                        </label>
+                        <input type="password" name="confirmar_senha" id="confirmar_senha" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Confirme sua senha" required>
+                    </div>
 
-                        <div class="mt-4">
-                            <label class="flex items-center text-sm text-gray-700">
-                                <input type="checkbox" class="mr-2">
-                                Quero receber as novidades por WhatsApp
+                    <div class="mt-4">
+                        <label for="cpf" class="block text-sm font-medium text-gray-700">
+                            CPF <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" name="cpf" id="cpf" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Apenas números" required>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="endereco" class="block text-sm font-medium text-gray-700">
+                            Endereço <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" name="endereco" id="endereco" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Rua, número" required>
+                    </div>
+
+                    <div class="mt-4 grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="cep" class="block text-sm font-medium text-gray-700">
+                                CEP <span class="text-red-500">*</span>
                             </label>
+                            <input type="text" name="cep" id="cep" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="XXXXX-XXX" required>
                         </div>
-                        <div class="mt-2">
-                            <label class="flex items-center text-sm text-gray-700">
-                                <input type="checkbox" class="mr-2">
-                                Concordo com o uso dos meus dados para reserva e experiência no site conforme a Política de Privacidade
+                        <div>
+                            <label for="complemento" class="block text-sm font-medium text-gray-700">
+                                Complemento
                             </label>
+                            <input type="text" name="complemento" id="complemento" class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Apto, bloco, etc.">
                         </div>
                     </div>
 
+                    <div class="mt-4">
+                        <label class="flex items-center text-sm text-gray-700">
+                            <input type="checkbox" name="receber_whatsapp" value="sim" class="mr-2">
+                            Quero receber as novidades por WhatsApp 
+                        </label>
+                    </div>
+                    <div class="mt-2">
+                        <label class="flex items-center text-sm text-gray-700">
+                            <input type="checkbox" name="aceitar_termos" value="sim" class="mr-2" required>
+                            Concordo com o uso dos meus dados para reserva e experiência no site conforme a <a href="#" class="text-blue-500 hover:underline"> Política de Privacidade</a>
+                        </label>
+                    </div>
                     <div class="mt-6 text-right">
                         <button type="submit" name="submit" class="bg-gray-300 text-gray-700 rounded-full px-6 py-2 hover:bg-gray-400">CONTINUAR</button>
                     </div>
-
-                </div>
-        </div>    
+                </form>
+            </div>
+        </div>
     </div>
-
-    <!-- Rodapé -->
-    <footer>   
+    <footer>
         <div class="footer-content">
             <p>CENTRAL DE RELACIONAMENTO</p>
             <button class="btn green">TIRE SUAS DÚVIDAS<br>Precisa de ajuda?</button>
         </div>
-        <p class="mt-2">
-            copyright © 2025 - www.Eleganceetux.com.br, Todos os direitos reservados. O conteúdo, design e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por escrito dos detentores dos direitos.
-        </p>
+        <p class="copyright">copyright © 2025 - www.Eleganceetux.com.br, Todos os direitos reservados. O conteúdo, design e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por escrito dos detentores dos direitos.</p>
     </footer>
+
+
 </body>
 </html>
 
