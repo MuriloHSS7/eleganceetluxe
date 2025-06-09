@@ -8,7 +8,7 @@ body {
 /* Cabeçalho */
 header {
     padding: 20px 0;
-    background-color: #d3e0ea;
+    background-color: #0ea08c;
 }
 
 header img {
@@ -91,7 +91,7 @@ button:hover {
 }
 
 footer {
-    background-color: darkgoldenrod; /* Cor de fundo do rodapé */
+    background-color: rgb(5, 122, 44); /* Cor de fundo do rodapé */
     padding: 52px;
     text-align: center; /* Alinhamento dos textos no centro */
     bottom: 0;
