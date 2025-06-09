@@ -33,7 +33,18 @@ select * from cadastro_pessoas;
 -- ALTER TABLE cadastro_pessoas ADD COLUMN aceitar_termos ENUM('sim', 'nao') NOT NULL DEFAULT 'nao' AFTER receber_whatsapp;
 
 
--- CADASTRO DE PRODUTOS
+-- CADASTRO DE 
+
+
+
+
+
+
+
+
+
+
+Test
 
 
 
