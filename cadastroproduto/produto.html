@@ -11,16 +11,21 @@
 <body>
     <header>
         <img src="/imagens/logocasamento.png" alt="Logo da Empresa">
+        
     </header>
     <main>
         <section class="form-container">
             <h1>Cadastro de Produtos</h1>
-            <form>
+            <form action="" method="post">
                 <div class="form-group">
-                    <label>Produto Com Retorno</label>
+                    <label>Tipo da peça de roupa</label>
                     <select name="product-type-select">
                         <option value="">Selecione o tipo de produto</option>
                     </select>
+                    <div class="form-group">
+                        <label>Nome da roupa</label>
+                        <input type="text" class="caixadescricao" placeholder="Produto...">
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
@@ -42,13 +47,14 @@
                 </div>
 
                 <div class="image-preview">
-                    <label>Imagem do Produto</label>
-                    <img src="dress.jpg" alt="Imagem do Produto">
+                    <label for="">Imagem do produto</label>
+                    <input type="file" name="productImage" id="productImage" accept="image/*" required>
                 </div>
                 <br><!-- Pulando linha -->
-                <button type="submit">Salvar</button> <!-- Botão de salvar no estoque-->
+                <button type="submit">Cadastrar Produto</button> <!-- Botão de salvar no estoque-->
             </form>
         </section>
+        <script src="/JS/imagemprevia.js"></script>
         <script src="/JS/unidade.js"></script>
     </main>
     <footer>
