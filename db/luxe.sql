@@ -42,12 +42,3 @@ select * from cadastro_pessoas;
 
 
 
-
-
-Test
-
-
-
-
-
-
