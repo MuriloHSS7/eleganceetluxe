@@ -2,7 +2,7 @@
 // Certifique-se que esta lógica PHP está no topo do arquivo cadastro.php
 if(isset($_POST['submit'])){
 
-    include_once('conexaologin.php'); // Inclui o arquivo de conexão
+    include_once('../process/conexaologin.php'); // Inclui o arquivo de conexão
 
     // Captura dos dados do formulário
     $nome = $_POST['nome'];
