@@ -33,8 +33,7 @@ select * from cadastro_pessoas;
 -- ALTER TABLE cadastro_pessoas ADD COLUMN aceitar_termos ENUM('sim', 'nao') NOT NULL DEFAULT 'nao' AFTER receber_whatsapp;
 
 
-
--- SQL para criar a tabela completa (se ainda não existir) 
+ 
 
 -- tabela de produtos
 CREATE TABLE cadastro_produtos (
@@ -48,12 +47,6 @@ CREATE TABLE cadastro_produtos (
   disponivel BOOLEAN DEFAULT TRUE
 );
 
--- tabela de criar_conta
-
-CREATE TABLE criar_conta (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  email VARCHAR(80) NOT NULL UNIQUE
-);
 
 
 
