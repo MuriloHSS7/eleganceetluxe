@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['id_usuario'] = $usuario['id'];
             $_SESSION['email_usuario'] = $usuario['email'];
 
-            echo "<script>alert('Login realizado com sucesso!'); window.location.href='../pagina_principal.php';</script>";
+            echo "<script>alert('Login realizado com sucesso!'); window.location.href='../dashboard/index.php';</script>";
 
         } else {
             echo "<script>alert('Email ou senha inválidos.'); window.location.href='../login/index.html';</script>";
