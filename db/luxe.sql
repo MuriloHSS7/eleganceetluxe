@@ -31,8 +31,6 @@ select * from cadastro_pessoas;
 -- ALTER TABLE cadastro_pessoas ADD COLUMN complemento VARCHAR(255) AFTER cep;
 -- ALTER TABLE cadastro_pessoas ADD COLUMN receber_whatsapp ENUM('sim', 'nao') DEFAULT 'nao' AFTER complemento;
 -- ALTER TABLE cadastro_pessoas ADD COLUMN aceitar_termos ENUM('sim', 'nao') NOT NULL DEFAULT 'nao' AFTER receber_whatsapp;
-
-
  
 
 -- tabela de produtos
