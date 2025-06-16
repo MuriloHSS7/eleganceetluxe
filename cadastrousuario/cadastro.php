@@ -1,5 +1,4 @@
 <?php
-// Certifique-se que esta lógica PHP está no topo do arquivo cadastro.php
 if(isset($_POST['submit'])){
 
     include_once('../process/conexaologin.php'); // Inclui o arquivo de conexão
@@ -8,9 +7,9 @@ if(isset($_POST['submit'])){
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $sexo = $_POST['genero'];
-    $data_nascimento = $_POST['data_nascimento']; // Alterado para corresponder ao name do HTML
+    $data_nascimento = $_POST['data_nascimento']; // 
     $ddd = $_POST['ddd'];
-    $numero_celular = $_POST['numero_celular']; // Alterado para corresponder ao name do HTML
+    $numero_celular = $_POST['numero_celular']; // 
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $confirmar_senha = $_POST['confirmar_senha'];
@@ -21,7 +20,7 @@ if(isset($_POST['submit'])){
     $receber_whatsapp = isset($_POST['receber_whatsapp']) ? 'sim' : 'nao';
     $aceitar_termos = isset($_POST['aceitar_termos']) ? 'sim' : 'nao';
 
-    // Validação de senhas e hash (CRUCIAL!)
+    // Validação de senhas e hash 
     if ($senha !== $confirmar_senha) {
         echo "<script>alert('Erro: As senhas não coincidem!'); window.location.href='cadastro.php';</script>";
         exit();
@@ -45,7 +44,7 @@ if(isset($_POST['submit'])){
 
     $verifica_email->close();
 
-    // SQL INJECTION PREVENTION (usando Prepared Statements)
+    // SQL INJECTION PREVENTION 
     // A query deve conter os nomes das colunas exatas do seu banco de dados
     $stmt = $conexao->prepare("INSERT INTO cadastro_pessoas (nome, sobrenome, sexo, data_nascimento, ddd, numero_celular, email, senha, cpf, endereco, cep, complemento, receber_whatsapp, aceitar_termos) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
@@ -54,7 +53,7 @@ if(isset($_POST['submit'])){
     }
 
     // "ssssssssssssss" significa que todos os 14 parâmetros são strings.
-    // Ajuste se alguma coluna no seu banco for de outro tipo (ex: 'i' para int).
+    // Ajusta da coluna no banco for de outro tipo (ex: 'i' para int).
     $stmt->bind_param("ssssssssssssss", $nome, $sobrenome, $sexo, $data_nascimento, $ddd, $numero_celular, $email, $senha_hash, $cpf, $endereco, $cep, $complemento, $receber_whatsapp, $aceitar_termos);
 
     if ($stmt->execute()) {
