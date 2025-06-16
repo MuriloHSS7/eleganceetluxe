@@ -2,7 +2,7 @@
 // Certifique-se que esta lógica PHP está no topo do arquivo cadastro.php
 if(isset($_POST['submit'])){
 
-    include_once('conexaologin.php'); // Inclui o arquivo de conexão
+    include_once('../process/conexaologin.php'); // Inclui o arquivo de conexão
 
     // Captura dos dados do formulário
     $nome = $_POST['nome'];
@@ -29,6 +29,21 @@ if(isset($_POST['submit'])){
 
     // Gerar o hash da senha
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+    // Verifica se o e-mail já está cadastrado
+    $verifica_email = $conexao->prepare("SELECT id FROM cadastro_pessoas WHERE email = ?");
+    $verifica_email->bind_param("s", $email);
+    $verifica_email->execute();
+    $verifica_email->store_result();
+
+    if ($verifica_email->num_rows > 0) {
+        echo "<script>alert('E-mail já cadastrado. Faça login ou use outro e-mail.'); window.location.href='../login/index.html';</script>";
+        $verifica_email->close();
+        $conexao->close();
+        exit();
+    }
+
+    $verifica_email->close();
 
     // SQL INJECTION PREVENTION (usando Prepared Statements)
     // A query deve conter os nomes das colunas exatas do seu banco de dados

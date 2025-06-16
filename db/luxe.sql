@@ -33,7 +33,20 @@ select * from cadastro_pessoas;
 -- ALTER TABLE cadastro_pessoas ADD COLUMN aceitar_termos ENUM('sim', 'nao') NOT NULL DEFAULT 'nao' AFTER receber_whatsapp;
 
 
--- CADASTRO DE 
+ 
+
+-- tabela de produtos
+CREATE TABLE cadastro_produtos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL,
+  tipo VARCHAR(20) NOT NULL,
+  tamanho VARCHAR(20),
+  cor VARCHAR(20),
+  preco_aluguel DECIMAL(10,2) NOT NULL,
+  descricao TEXT,
+  disponivel BOOLEAN DEFAULT TRUE
+);
+
 
 
 
