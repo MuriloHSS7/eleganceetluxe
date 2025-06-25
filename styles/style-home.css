@@ -33,11 +33,11 @@ body{
 
 /* Logo*/
 .logo{
-    color: #a6e094;
+    color: #255316;
 }
 
 .logo span{
-    color: #e8e490;
+    color: #e6c10a;
 }
 
 
@@ -319,11 +319,47 @@ Talvez possa utilizar depois
     gap: 3rem;
 } */
 
-/* --- Estilos para o Título da Seção --- */
+
+
+.cols-4 img{
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    margin-bottom: 1.8rem;
+}
+
+.cols-4{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 3.5rem;
+}
+
+.cols>div{
+    cursor: pointer;
+    transition: all 0.2ms;
+}
+
+.cols>*:hover{
+    transform: translate(-5px);
+}
+
+.section-title{
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 2rem;
+}
+
+.subtitle-underline{
+    width: 100px;
+    height: 5px;
+    background-color: #333;
+    border-radius: 2px;
+    margin: 0px auto 40px;
+}
 
 .page-iner-content {
     /* Adiciona um espaço generoso acima do título para separá-lo do slider */
-    margin-top: 50px; 
+    margin-top: 30px; 
     
     /* Centraliza o conteúdo (incluindo o h2) horizontalmente */
     max-width: 1200px; /* Use uma largura máxima para o conteúdo principal */
@@ -335,7 +371,7 @@ Talvez possa utilizar depois
 
 .page-iner-content h2 {
     text-align: center; /* Centraliza o texto do título */
-    font-size: 2rem; /* Um tamanho bom para um título de seção */
+    
     color: #333; /* Uma cor escura para boa legibilidade */
     margin-bottom: 30px; /* Espaço abaixo do título, antes dos produtos */
 }
