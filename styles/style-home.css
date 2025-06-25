@@ -17,11 +17,11 @@ body{
 
 
 .navbar{
-    background-color: #5c3d5b;
+    background-color: #81c784;
     padding: 1rem;
     position: sticky; /*mantem a organização */
     top: 0;
-    box-shadow: 10px 0px 10px #5c3d5b; /* uma pequena sombra*/
+    box-shadow: 10px 0px 10px #81c784; /* uma pequena sombra*/
 }
 
 .navbar>div{
