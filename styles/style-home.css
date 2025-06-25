@@ -8,7 +8,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* parte de cima*/
+/* Parte de cima*/
 .header-inner-content{
     max-width: 1300px;
     margin-left: auto;
@@ -28,9 +28,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
-/* logo*/
+/* Logo*/
 .logo{
     color: #a6e094;
 }
@@ -39,6 +40,8 @@ body{
     color: #e8e490;
 }
 
+
+/* Aqui começa o slide*/
 
 .slider{
     margin: 0 auto;
@@ -61,6 +64,7 @@ body{
 .slide {
     width: 200%;
     position: relative;
+    transition: 2s;
 }
 
 
@@ -145,9 +149,10 @@ body{
     background-color: #fff;
 }
 
+/* Aqui termina o slide*/
 
 
-/* mexendo na lista*/ 
+/* Mexendo na lista*/ 
 nav ul{
     display: flex;
     list-style: none;
@@ -159,13 +164,13 @@ nav ul{
     align-items: center;
 }
 
-/* definindo o tamanho da imgs*/
+/* Definindo o tamanho da imgs*/
 .nav-icon-container img{
     width: 30px;
     cursor: pointer;
 }
 
-/* a img do carrinho*/
+/* A img do carrinho*/
 .nav-icon-container img:first-child{
     margin-right: 1rem;
 }
@@ -176,7 +181,7 @@ nav ul li{
     cursor: pointer;
 }
 
-/* pequeno efeito na lista*/
+/* Pequeno efeito na lista*/
 nav ul li:hover{
     transform: translateY(-5px);
     transition: all 0.2s;
@@ -239,3 +244,46 @@ Talvez possa utilizar depois
     width: 115%;
 
 } */
+
+/* Responsividade para mobile*/
+
+@media (max-width: 800px){
+    .logo{
+        font-size: 1.2rem;
+    
+    }
+
+    .menu-button{
+        display: block;
+    }
+
+    /* .header-bottom-side{
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    } */
+
+    nav{
+        position: absolute;
+        background-color: #5c3d5b;
+        width: 100%;
+        top: 46px;
+        display: none;
+
+    }
+
+    .show-menu nav{
+        display: block;
+    }
+
+    nav ul{
+        flex-direction: column;
+    }
+
+    nav ul li{
+        text-align: center;
+        padding: 0.8rem;
+
+    }
+
+}
