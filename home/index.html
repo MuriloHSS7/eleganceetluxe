@@ -1,0 +1,63 @@
+<!-- 
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_usuario'])) {
+    // Usuário não está logado, redireciona para login
+    header('Location: ../login/index.html');
+    exit();
+}
+
+// Pega o nome/email do usuário para mostrar no dashboard (pode adaptar para pegar nome real)
+$usuario = $_SESSION['email_usuario'];
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élegance et luxe</title>
+   <link rel="stylesheet" href="../styles/style-home.css" />
+</head>
+<body>
+    <!--AQUI FOI SÓ O MENU -->
+    <div class="navbar">
+        <div class="header-inner-content">
+            <h1 class="logo">ÉLEGANCE<span> ET LUXE</span></h1> <!--PARA MUDAR DE COR DEPOIS-->
+            <nav>
+                <ul>
+                    <li>TODAS AS CATEGORIAS</li>
+                    <li>CURTOS</li>
+                    <li>MIDI</li>
+                    <li>TERNOS</li>
+                    <li>ACESSÓRIOS</li>
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <img src="../assets/banners/cart.png" alt="">
+                <img src="../assets/banners/menu.png" alt="" class="menu-button">
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner-content">
+            <div class="header-button-side">
+                <div class="header-button-side-left">
+                    <h2></h2>
+                    <p></p>
+                    <button></button>
+                </div>
+
+                <div class="header-button-side-right">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
+

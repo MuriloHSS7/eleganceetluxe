@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* parte de cima*/
+.header-inner-content{
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.navbar{
+    background-color: #5c3d5b;
+    padding: 1rem;
+    position: sticky; /*mantem a organização */
+    top: 0;
+    box-shadow: 10px 0px 10px #5c3d5b; /* uma pequena sombra*/
+}
+
+.navbar>div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* logo*/
+.logo{
+    color: #a6e094;
+}
+
+.logo span{
+    color: #e8e490;
+}
+
+/* mexendo na lista*/ 
+nav ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-icon-container{
+    display: flex;
+    align-items: center;
+}
+
+/* definindo o tamanho da imgs*/
+.nav-icon-container img{
+    width: 30px;
+    cursor: pointer;
+}
+
+/* a img do carrinho*/
+.nav-icon-container img:first-child{
+    margin-right: 1rem;
+}
+
+nav ul li{
+    color: #fff;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+/* pequeno efeito na lista*/
+nav ul li:hover{
+    transform: translateY(-5px);
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.menu-button{
+    display: none;
+}
+
+
+
+
+/* 
+Talvez possa utilizar depois
+
+.header-button-side{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 1rem;
+
+}
+
+.header-button-side-left{
+    flex-basis: 50px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.header-button-side-left h2{
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+
+}
+
+.header-button-side-left p{
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+       
+}
+
+.header-button-side-left button{
+    background-color: #5c3d5b;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 3.8rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.header-button-side-left button:hover{
+    background-color: #a6e094;
+}
+
+.header-button-side-right{
+    width: 115%;
+
+} */
