@@ -43,11 +43,14 @@ body{
 
 /* Aqui começa o slide*/
 
-.slider{
+.slider {
     margin: 0 auto;
-    width: 1905px;
-    height: 1080px;
+    width: 100%; /* Use 100% para ser responsivo */
+ /* Limite o tamanho em telas grandes */
+    height: 100%;
     overflow: hidden;
+ /* Deixa o slider mais "achatado". Ajuste os números como quiser! */
+    position: relative; /* Necessário para os botões de navegação */
 }
 
 .slides {
@@ -286,4 +289,53 @@ Talvez possa utilizar depois
 
     }
 
+}
+
+
+/* Main*/
+/* .white-background{
+    background-color: #fff;
+}
+
+.pager-inner-content{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.imagem-quadrada{
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+}
+
+.cols{
+    display: grid;
+    justify-content: space-evenly;
+    padding: 4rem 1rem;
+}
+
+.cols-3{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+} */
+
+/* --- Estilos para o Título da Seção --- */
+
+.page-iner-content {
+    /* Adiciona um espaço generoso acima do título para separá-lo do slider */
+    margin-top: 50px; 
+    
+    /* Centraliza o conteúdo (incluindo o h2) horizontalmente */
+    max-width: 1200px; /* Use uma largura máxima para o conteúdo principal */
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding: 0 20px; 
+}
+
+.page-iner-content h2 {
+    text-align: center; /* Centraliza o texto do título */
+    font-size: 2rem; /* Um tamanho bom para um título de seção */
+    color: #333; /* Uma cor escura para boa legibilidade */
+    margin-bottom: 30px; /* Espaço abaixo do título, antes dos produtos */
 }
