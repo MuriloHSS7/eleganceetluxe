@@ -375,3 +375,39 @@ Talvez possa utilizar depois
     color: #333; /* Uma cor escura para boa legibilidade */
     margin-bottom: 30px; /* Espaço abaixo do título, antes dos produtos */
 }
+
+
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn.green {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.separator {
+    width: 1px;
+    background-color: #ccc;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e9ecef;
+}
+
+.footer-content {
+    margin-bottom: 10px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #666;
+}
