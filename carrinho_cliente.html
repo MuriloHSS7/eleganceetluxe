@@ -207,30 +207,37 @@
     </div>
     <div class="products">
         <div class="row">
-            <div class="col-md-6">
-                <form id="request" class="main_form2">
-                    <h1>Seja bem-vindo,
-                        <?php echo htmlspecialchars($_SESSION['nome']); ?>!!
-                    </h1>
-                    <h2>A nossa página!!</h2>
-                    <p></p>
-                    <a href="carrinho_cliente.html">
-                        <button type="button" class="btn">
-                            <strong>CARRINHO</strong>
-                            <div id="container-stars">
-                                <div id="stars"></div>
-                            </div>
+            <form method="POST" class="carrinho">
+                <h1>Reserva de produtos</h1>
+                <label for="produto" style="color:black;">Produto: </label>
+                <select name="produto_id" id="produto">
+                    <?php
+                $stmt = $pdo->query("SELECT id, nome FROM produtos");
+                while ($produto = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<option value='" . $produto['id'] . "'>" . htmlspecialchars($produto['nome']) . "</option>";
+                }
+                ?>
+                </select><br>
+                <label for="quantidade" style="color:black;">Quantidade: </label>
+                <input type="number" name="quantidade" id="quantidade" required><br>
+                <h2>Forma de Pagamento: </h2>
+                <select name="forma_pagamento" id="formapagamento">
+                    <option value="Cartão" id="formapagamento">Cartão</option>
+                    <option value="Dinheiro" id="formapagamento">Dinheiro</option>
+                </select><br><br>
+                <button type="submit" type="button" class="btn">
+                    <strong>FAZER RESERVA</strong>
+                    <div id="container-stars">
+                        <div id="stars"></div>
+                    </div>
 
-                            <div id="glow">
-                                <div class="circle"></div>
-                                <div class="circle"></div>
-                            </div>
-                        </button>
-                    </a>
-                </form>
-            </div>
+                    <div id="glow">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </button>
+            </form>
         </div>
-    </div>
     </div>
 
     <!-- Rodapé -->
