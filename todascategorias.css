@@ -1,362 +1,419 @@
-* {
-    margin: 0;
-    padding: 0;
+*{
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #f0f0f0;
+body{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Barra Superior */
-.header {
-    background-color: #C8E6C9;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #81C784;
-    width: 100%;
-    /* Ou um valor fixo como 1200px */
-    /* Para garantir que ocupe toda a largura disponível */
+/* Parte de cima*/
+.header-inner-content{
+    max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.header .nav {
-    display: flex;
-    gap: 20px;
-}
-
-.header .nav a {
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.header .user-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.header .user-section .avatar {
-    width: 30px;
-    height: 30px;
-    background-color: #000;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 12px;
-}
-
-.header .user-section .greeting {
-    font-size: 14px;
-    color: #333;
-}
-
-.header .user-section .cart {
-    width: 30px;
-    height: 30px;
-    background-color: #fff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.cart-count {
-    background-color: #f44336;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 12px;
-}
-
-/* Conteúdo Principal */
-.content {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-}
-
-/* Filtros */
-.filters {
-    width: 200px;
-    background-color: #fff;
-    padding: 20px;
-    border-right: 1px solid #ddd;
-    overflow-y: auto;
-}
-
-.filters h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.filters button {
-    background-color: #9e9e9e;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.filters .filter-group {
-    margin-bottom: 20px;
-}
-
-.filters .filter-group label {
-    display: block;
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-/* Produtos */
-.products {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 10px;
-}
-
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.product-card h4 {
-    font-size: 14px;
-    margin: 10px 0;
-}
-
-.product-card p {
-    font-size: 12px;
-    color: #666;
-}
-
-.reserve-btn {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* Rodapé */
-.footer {
-    background-color: #e0e0e0;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 12px;
-    color: #666;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #bdbdbd;
-}
-
-.footer a {
-    color: #1976d2;
+.header-inner-content a{
+    color: inherit;
     text-decoration: none;
 }
 
-.footer .help-btn {
-    background-color: #4caf50;
-    color: white;
-    padding: 5px 20px;
-    border-radius: 20px;
-    text-decoration: none;
-}
 
-/* Carrinho Modal */
-.cart-modal {
-    position: fixed;
+.navbar{
+    background-color: #81c784;
+    padding: 1rem;
+    position: sticky; /*mantem a organização */
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    box-shadow: 10px 0px 10px #81c784; /* uma pequena sombra*/
 }
 
-.cart-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    width: 350px;
-    max-height: 80vh;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    position: relative;
-}
-
-.cart-item {
+.navbar>div{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-    color: #333;
-}
-
-/* Botões específicos do carrinho */
-#cart-modal .remove-btn {
-    background-color: #f44336 !important;
-    color: white;
-    border: none;
-    padding: 2px 8px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 12px;
-    height: 25px;
-}
-
-#cart-modal .clear-btn {
-    background-color: #9e9e9e !important;
-    color: white;
-    border: none;
-    padding: 5px 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 14px;
-    height: 30px;
-}
-
-#cart-modal .confirm-btn {
-    background-color: #4caf50 !important;
-    color: white;
-    border: none;
-    padding: 5px 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 14px;
-    height: 30px;
-}
-
-/* Botão genérico (Fechar) */
-#cart-modal .generic-btn {
-    background: linear-gradient(135deg, #b0bec5, #cfd8dc);
-    color: white;
-    border: none;
-    padding: 5px 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 14px;
-    height: 30px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
-
-.carousel {
-    width: 800px;
-    height: 250px;
-    overflow: hidden;
     position: relative;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo*/
+.logo{
+    color: #255316;
+}
+
+.logo span{
+    color: #e6c10a;
+}
+
+
+/* Aqui começa o slide*/
+
+.slider {
+    margin: 0 auto;
+    width: 100%; /* Use 100% para ser responsivo */
+ /* Limite o tamanho em telas grandes */
+    height: 100%;
+    overflow: hidden;
+ /* Deixa o slider mais "achatado". Ajuste os números como quiser! */
+    position: relative; /* Necessário para os botões de navegação */
 }
 
 .slides {
+    width: 1905%;
+    width: 1080px; /* 4 imagens */
     display: flex;
-    width: 300%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
+}
+
+
+.slides input{
+    display: none;
 }
 
 .slide {
-    width: 33.33%;
-    height: 100%;
+    width: 200%;
+    position: relative;
+    transition: 2s;
+}
+
+
+.slide img{
+    width: 1920px;
+    
+}
+
+.manual-navigation{
+    position: absolute;
+    width: 1905px;
+    margin-top: -100px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: center;
+}
+
+.manual-btn{
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 40px
+}
+
+.manual-btn:hover{
     background-color: #fff;
 }
 
-.slide-content {
-    width: 50%;
-    padding: 20px;
+#radio1:checked ~ .first{
+    margin-left: 0%;
+
 }
 
-.slide-content h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333;
+#radio2:checked ~ .first{
+    margin-left: -180%;
+
 }
 
-.slide-content p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.5;
+#radio3:checked ~ .first{
+    margin-left: -360%;
+
 }
 
-.slide-image {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
+/* #radio4:checked ~ .first{
+    margin-left: -540%;
+
+} */
+
+.navigation-auto div{
+    border: 2px solid;
+    padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
 }
 
-.controls {
+.navigation-auto{
     position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 1905px;
+    margin-top: 405px;
     display: flex;
-    gap: 10px;
+    justify-content: center;
 }
 
-.controls button {
-    padding: 10px 20px;
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~.navigation-auto-btn1{
+    background-color: #fff;
+}
+
+#radio2:checked ~.navigation-auto-btn1{
+    background-color: #fff;
+}
+
+#radio3:checked ~.navigation-auto-btn1{
+    background-color: #fff;
+}
+
+/* Aqui termina o slide*/
+
+
+/* Mexendo na lista*/ 
+nav ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-icon-container{
+    display: flex;
+    align-items: center;
+}
+
+/* Definindo o tamanho da imgs*/
+.nav-icon-container img{
+    width: 30px;
+    cursor: pointer;
+}
+
+/* A img do carrinho*/
+.nav-icon-container img:first-child{
+    margin-right: 1rem;
+}
+
+nav ul li{
+    color: #fff;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+/* Pequeno efeito na lista*/
+nav ul li:hover{
+    transform: translateY(-5px);
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.menu-button{
+    display: none;
+}
+
+
+
+
+/* 
+Talvez possa utilizar depois
+
+.header-button-side{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 1rem;
+
+}
+
+.header-button-side-left{
+    flex-basis: 50px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.header-button-side-left h2{
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+
+}
+
+.header-button-side-left p{
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+       
+}
+
+.header-button-side-left button{
+    background-color: #5c3d5b;
     border: none;
-    background-color: #007bff;
-    color: white;
+    cursor: pointer;
+    padding: 0.8rem 3.8rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.header-button-side-left button:hover{
+    background-color: #a6e094;
+}
+
+.header-button-side-right{
+    width: 115%;
+
+} */
+
+/* Responsividade para mobile*/
+
+@media (max-width: 800px){
+    .logo{
+        font-size: 1.2rem;
+    
+    }
+
+    .menu-button{
+        display: block;
+    }
+
+    /* .header-bottom-side{
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    } */
+
+    nav{
+        position: absolute;
+        background-color: #5c3d5b;
+        width: 100%;
+        top: 46px;
+        display: none;
+
+    }
+
+    .show-menu nav{
+        display: block;
+    }
+
+    nav ul{
+        flex-direction: column;
+    }
+
+    nav ul li{
+        text-align: center;
+        padding: 0.8rem;
+
+    }
+
+}
+
+
+/* Main*/
+/* .white-background{
+    background-color: #fff;
+}
+
+.pager-inner-content{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.imagem-quadrada{
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+}
+
+.cols{
+    display: grid;
+    justify-content: space-evenly;
+    padding: 4rem 1rem;
+}
+
+.cols-3{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+} */
+
+
+
+.cols-4 img{
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    margin-bottom: 1.8rem;
+}
+
+.cols-4{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 3.5rem;
+}
+
+.cols>div{
+    cursor: pointer;
+    transition: all 0.2ms;
+}
+
+.cols>*:hover{
+    transform: translate(-5px);
+}
+
+.section-title{
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 2rem;
+}
+
+.subtitle-underline{
+    width: 100px;
+    height: 5px;
+    background-color: #333;
+    border-radius: 2px;
+    margin: 0px auto 40px;
+}
+
+.page-iner-content {
+    /* Adiciona um espaço generoso acima do título para separá-lo do slider */
+    margin-top: 30px; 
+    
+    /* Centraliza o conteúdo (incluindo o h2) horizontalmente */
+    max-width: 1200px; /* Use uma largura máxima para o conteúdo principal */
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding: 0 20px; 
+}
+
+.page-iner-content h2 {
+    text-align: center; /* Centraliza o texto do título */
+    
+    color: #333; /* Uma cor escura para boa legibilidade */
+    margin-bottom: 30px; /* Espaço abaixo do título, antes dos produtos */
+}
+
+
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 14px;
 }
 
-.controls button:hover {
-    background-color: #0056b3;
+.btn.green {
+    background-color: #28a745;
+    color: #fff;
 }
+
+.separator {
+    width: 1px;
+    background-color: #ccc;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e9ecef;
+}
+
+.footer-content {
+    margin-bottom: 10px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #666;
+}
+

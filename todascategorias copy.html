@@ -21,8 +21,7 @@ $usuario = $_SESSION['email_usuario'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Élegance et luxe</title>
-    <link rel="stylesheet" href="paginainicial.css" />
-    <link rel="icon" href="aliancas.png" type="image/x-icon">
+    <link rel="stylesheet" href="stylehome.css" />
 </head>
 
 <body>
@@ -42,8 +41,8 @@ $usuario = $_SESSION['email_usuario'];
                 </ul>
             </nav>
             <div class="nav-icon-container">
-                <img src="cart.png" alt="icone do carrinho">
-                <img src="perfil.png" alt="icone do perfil">
+                <a href="carrinho_cliente.html"><img src="cart.png" alt="icone do carrinho"></a>
+                <a href="perfil.html"><img src="perfil.png" alt="icone do perfil"></a>
                 <img src="menu.png" alt="" class="menu-button">
             </div>
         </div>
@@ -101,68 +100,101 @@ $usuario = $_SESSION['email_usuario'];
             <div class="subtitle-underline"></div>
             <div class="cols cols-4">
                 <div class="product">
-                    <img src="vestidopr1.JPEG" alt="">
-                    <p class="product-name">Vestido Longo de Festa Madrinhas Tomara que Caia</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <p>Preço: R$429,99</p>
+                    <img src="vestidocurto1.jpeg" alt="Vestido branco">
+                    <h4>Vestido curto branco</h4>
+                    <p>R$ 409,90 no pix</p>
+                    <p>R$ 409,90 ou 2x de R$204,95 sem juros</p>
                 </div>
                 <div class="product">
-                    <img src="vestidov1.JPEG" alt="">
-                    <p class="product-name">Vestido Longo de Festa Madrinhas um Ombro com Fenda</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <p>Preço: R$229,99</p>
+                    <img src="vestidocurto2.png" alt="Vestido preto">
+                    <h4>Vestido curto branco</h4>
+                    <p>R$ 219,99 no pix</p>
+                    <p>R$ 219,99 ou 2x de R$110,00 sem juros</p>
                 </div>
                 <div class="product">
-                    <img src="vestidorp1.JPEG" alt="">
-                    <p class="product-name">Vestido Longo de Festa Madrinhas</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <p>Preço: R$359,99</p>
+                    <img src="vestidocurto3.jpg" alt="Vestido vermelho">
+                    <h4>Vestido curto branco</h4>
+                    <p>R$ 199,99 no pix</p>
+                    <p>R$ 199,99 ou 2x de R$100,00 sem juros</p>
                 </div>
                 <div class="product">
-                    <img src="vestidor1.JPEG" alt="">
-                    <p class="product-name">Vestido Longo de Festa Madrinhas Formandas</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <p>Preço: R$419,99</p>
-                </div>
-
-            </div>
-        </div>
-        <br>
-        <br>
-        <br>
-
-        <br>
-        <br>
-        <br>
-        <div class="page-iner-content">
-            <h2 class="section title">O QUE OS OUTROS ESTÃO VENDO</h2>
-            <div class="subtitle-underline"></div>
-            <div class="cols cols-4">
-                <div class="product">
-                    <img src="vestidocurto1.jpeg" alt="">
-                    <p class="product-name">Vestido curto de Festa</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <p>Preço: R$329,99</p>
+                    <img src="vestidocurto4.JPEG" alt="Terno preto">
+                    <h4>Vestido curto branco</h4>
+                    <p>R$ 219,99 no pix</p>
+                    <p>R$ 219,99 ou 2x de R$110,00 sem juros</p>
                 </div>
                 <div class="product">
-                    <img src="vestidocurto2.png" alt="">
-                    <p class="product-name">Vestido curto de Festa</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <p>Preço: R$129,99</p>
+                    <img src="vestidolongo1.jpg" alt="Vestido curto vermelho">
+                    <h4>Vestido longo rose</h4>
+                    <p>R$ 119,99 no pix</p>
+                    <p>R$ 119,99 ou 2x de R$60,00 sem juros</p>
                 </div>
                 <div class="product">
-                    <img src="vestidolongo1.jpg" alt="">
-                    <p class="product-name">Vestido Longo de Festa Madrinhas</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <p>Preço: R$359,99</p>
+                    <img src="vestidolongo2.jpg">
+                    <h4>Vestido longo vinho</h4>
+                    <p>R$ 139,99 no pix</p>
+                    <p>R$ 139,99 ou 2x de R$70,00 sem juros</p>
                 </div>
                 <div class="product">
-                    <img src="vestidolongo2.jpg" alt="">
-                    <p class="product-name">Vestido Longo de Festa Madrinhas Formandas</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <p>Preço: R$319,99</p>
+                    <img src="vestidolongo3.jpg">
+                    <h4>Vestido longo vermelho</h4>
+                    <p>R$ 129,99 no pix</p>
+                    <p>R$ 129,99 ou 2x de R$65,00 sem juros</p>
                 </div>
-
+                <div class="product">
+                    <img src="vestidolongo4.jpg">
+                    <h4>Vestido longo azul bebê</h4>
+                    <p>R$ 169,99 no pix</p>
+                    <p>R$ 169,99 ou 2x de R$85,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="terno1.jpg">
+                    <h4>Terno azul escuro</h4>
+                    <p>R$ 319,99 no pix</p>
+                    <p>R$ 319,99 ou 2x de R$160,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="terno2.jpg">
+                    <h4>Terno preto</h4>
+                    <p>R$ 69,99 no pix</p>
+                    <p>R$ 69,99 ou 2x de R$35,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="terno3.jpg">
+                    <h4>Terno cinza escuro</h4>
+                    <p>R$ 169,99 no pix</p>
+                    <p>R$ 169,99 ou 2x de R$85,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="terno4.jpg">
+                    <h4>Terno cinza claro</h4>
+                    <p>R$ 29,99 no pix</p>
+                    <p>R$ 29,99 ou 2x de R$15,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="acessorio1.JPEG">
+                    <h4>Brincos em pedras de diamantes</h4>
+                    <p>R$ 29,99 no pix</p>
+                    <p>R$ 29,99 ou 2x de R$15,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="acessorio2.jpg">
+                    <h4>Cinto de couro preto</h4>
+                    <p>R$ 39,99 no pix</p>
+                    <p>R$ 39,99 ou 2x de R$20,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="acessorio3.jpg">
+                    <h4>Sapato social preto</h4>
+                    <p>R$ 79,99 no pix</p>
+                    <p>R$ 79,99 ou 2x de R$40,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="acessorio4.JPEG">
+                    <h4>Sapato de princesa branco</h4>
+                    <p>R$ 79,99 no pix</p>
+                    <p>R$ 79,99 ou 2x de R$40,00 sem juros</p>
+                </div>
             </div>
         </div>
     </div>
