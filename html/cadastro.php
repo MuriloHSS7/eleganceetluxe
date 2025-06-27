@@ -1,3 +1,74 @@
+<?php
+if(isset($_POST['submit'])){
+
+    include_once('../php/conexaologin.php'); // Inclui o arquivo de conexão
+
+    // Captura dos dados do formulário
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
+    $sexo = $_POST['genero'];
+    $data_nascimento = $_POST['data_nascimento']; // 
+    $ddd = $_POST['ddd'];
+    $numero_celular = $_POST['numero_celular']; // 
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $confirmar_senha = $_POST['confirmar_senha'];
+    $cpf = $_POST['cpf'];
+    $endereco = $_POST['endereco'];
+    $cep = $_POST['cep'];
+    $complemento = $_POST['complemento'];
+    $receber_whatsapp = isset($_POST['receber_whatsapp']) ? 'sim' : 'nao';
+    $aceitar_termos = isset($_POST['aceitar_termos']) ? 'sim' : 'nao';
+
+    // Validação de senhas e hash 
+    if ($senha !== $confirmar_senha) {
+        echo "<script>alert('Erro: As senhas não coincidem!'); window.location.href='cadastro.php';</script>";
+        exit();
+    }
+
+    // Gerar o hash da senha
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+    // Verifica se o e-mail já está cadastrado
+    $verifica_email = $conexao->prepare("SELECT id FROM cadastro_pessoas WHERE email = ?");
+    $verifica_email->bind_param("s", $email);
+    $verifica_email->execute();
+    $verifica_email->store_result();
+
+    if ($verifica_email->num_rows > 0) {
+        echo "<script>alert('E-mail já cadastrado. Faça login ou use outro e-mail.'); window.location.href='../login/index.html';</script>";
+        $verifica_email->close();
+        $conexao->close();
+        exit();
+    }
+
+    $verifica_email->close();
+
+    // SQL INJECTION PREVENTION 
+    // A query deve conter os nomes das colunas exatas do seu banco de dados
+    $stmt = $conexao->prepare("INSERT INTO cadastro_pessoas (nome, sobrenome, sexo, data_nascimento, ddd, numero_celular, email, senha, cpf, endereco, cep, complemento, receber_whatsapp, aceitar_termos) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    if ($stmt === false) {
+        die('Erro na preparação da query: ' . $conexao->error);
+    }
+
+    // "ssssssssssssss" significa que todos os 14 parâmetros são strings.
+    // Ajusta da coluna no banco for de outro tipo (ex: 'i' para int).
+    $stmt->bind_param("ssssssssssssss", $nome, $sobrenome, $sexo, $data_nascimento, $ddd, $numero_celular, $email, $senha_hash, $cpf, $endereco, $cep, $complemento, $receber_whatsapp, $aceitar_termos);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href='login.php';</script>";
+        // Redireciona para a página de login após o cadastro
+    } else {
+        echo "<script>alert('Erro ao cadastrar: " . $stmt->error . "'); window.location.href='cadastro.php';</script>";
+    }
+
+    $stmt->close();
+    $conexao->close(); // Fechar a conexão com o banco de dados
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
