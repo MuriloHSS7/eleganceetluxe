@@ -199,6 +199,17 @@ $usuario = $_SESSION['email_usuario'];
                 box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
             }
         }
+
+        .cadastroElogin {
+            padding: 12.5px 30px;
+            border: 0;
+            border-radius: 100px;
+            background-color: #2ba8fb;
+            color: #ffffff;
+            font-weight: Bold;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+        }
     </style>
 </head>
 
@@ -217,11 +228,14 @@ $usuario = $_SESSION['email_usuario'];
                     <li><a href="longos.html">Longo</a></li>
                     <li><a href="ternos.html">Ternos</a></li>
                     <li><a href="acessorios.html">Acessórios</a></li>
+
                 </ul>
             </nav>
             <div class="nav-icon-container">
                 <a href="carrinho_cliente.html"><img src="imagens/cart.png" alt="icone do carrinho"></a>
                 <a href="perfil.html"><img src="imagens/perfil.png" alt="icone do perfil"></a>
+                <button class="cadastroElogin"><a href="cadastrousuario/cadastro.html">Cadastro</a></button>
+                <button class="cadastroElogin"><a href="login/index.php">Login</a></button>
                 <img src="imagens/menu.png" alt="" class="menu-button">
             </div>
         </div>

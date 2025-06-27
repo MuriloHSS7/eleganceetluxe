@@ -1,3 +1,19 @@
+<!-- 
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_usuario'])) {
+    // Usuário não está logado, redireciona para login
+    header('Location: ../login/index.html');
+    exit();
+}
+
+// Pega o nome/email do usuário para mostrar no dashboard (pode adaptar para pegar nome real)
+$usuario = $_SESSION['email_usuario'];
+?> -->
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,32 +23,6 @@
     <title>Élegance et luxe</title>
     <link rel="stylesheet" href="paginainicial.css" />
     <link rel="icon" href="imagens/aliancas.png" type="image/x-icon">
-    <style>
-        .cadastroElogin {
-            padding: 12.5px 30px;
-            border: 0;
-            border-radius: 100px;
-            background-color: #2ba8fb;
-            color: #ffffff;
-            font-weight: Bold;
-            transition: all 0.5s;
-            -webkit-transition: all 0.5s;
-        }
-
-        .cadastroElogin {
-            background-color: #6fc5ff;
-            box-shadow: 0 0 20px #6fc5ff50;
-            transform: scale(1.1);
-        }
-
-        .cadastroElogin {
-            background-color: #3d94cf;
-            transition: all 0.25s;
-            -webkit-transition: all 0.25s;
-            box-shadow: none;
-            transform: scale(0.98);
-        }
-    </style>
 </head>
 
 <body>
@@ -41,8 +31,7 @@
     <div class="navbar show-menu">
         <div class="header-inner-content">
             <img src="" alt="">
-            <h1 class="logo"><a href="index.html">ÉLEGANCE<span> ET LUXE</span></a></h1>
-            <!-- PARA MUDAR DE COR DEPOIS -->
+            <h1 class="logo">ÉLEGANCE<span> ET LUXE</span></h1> <!-- PARA MUDAR DE COR DEPOIS -->
             <nav>
                 <ul>
                     <li><a href="todascategorias.html">Todas as categorias</a></li>
@@ -57,8 +46,6 @@
                 <a href="perfil.html"><img src="imagens/perfil.png" alt="icone do perfil"></a>
                 <img src="imagens/menu.png" alt="" class="menu-button">
                 <img src="imagens/menu.png" alt="" class="menu-button">
-                <button class="cadastroElogin"><a href="cadastrousuario/cadastro.html">Cadastro</a></button>
-                <button class="cadastroElogin"><a href="login/index.php">Login</a></button>
             </div>
         </div>
     </div>

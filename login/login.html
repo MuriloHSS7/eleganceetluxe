@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élegance et luxe</title>
+    <link rel="stylesheet" href="../login/login.css" />
+    <link rel="icon" href="../imagens/aliancas.png" type="image/x-icon">
+    <style>
+        .cadastroElogin {
+            padding: 12.5px 30px;
+            border: 0;
+            border-radius: 100px;
+            background-color: #2ba8fb;
+            color: #ffffff;
+            font-weight: Bold;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+        }
+
+        .cadastroElogin {
+            background-color: #6fc5ff;
+            box-shadow: 0 0 20px #6fc5ff50;
+            transform: scale(1.1);
+        }
+
+        .cadastroElogin {
+            background-color: #3d94cf;
+            transition: all 0.25s;
+            -webkit-transition: all 0.25s;
+            box-shadow: none;
+            transform: scale(0.98);
+        }
+
+        .login {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .caixa {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="menu.js"></script>
+    <!--AQUI COMEÇA O MENU -->
+    <div class="navbar show-menu">
+        <div class="header-inner-content">
+            <img src="" alt="">
+            <h1 class="logo">ÉLEGANCE<span> ET LUXE</span></h1> <!-- PARA MUDAR DE COR DEPOIS -->
+            <nav>
+                <ul>
+                    <li><a href="todascategorias.html">Todas as categorias</a></li>
+                    <li><a href="curtos.html">Curtos</a></li>
+                    <li><a href="longos.html">Longo</a></li>
+                    <li><a href="ternos.html">Ternos</a></li>
+                    <li><a href="acessorios.html">Acessórios</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <a href="carrinho_cliente.html"><img src="../imagens/cart.png" alt="icone do carrinho"></a>
+                <a href="perfil.html"><img src="../imagens/perfil.png" alt="icone do perfil"></a>
+                <button class="cadastroElogin"><a href="../cadastrousuario/cadastro.html">Cadastro</a></button>
+                <img src="imagens/menu.png" alt="" class="menu-button">
+            </div>
+        </div>
+    </div>
+    <!--AQUI TERMINA O MENU -->
+
+    <div class="caixa">
+        <div class="login">
+            <div class="login-section">
+                <h2>Já sou cliente</h2>
+
+                <!-- 🔥 Formulário de login -->
+                <form action="../process/validarLogin.php" method="POST">
+                    <input type="email" name="email" placeholder="Digite o seu e-mail" class="input-field" required>
+                    <input type="password" name="senha" placeholder="Digite a sua senha" class="input-field" required>
+                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                    <button type="submit" class="btn">ACESSAR CONTA</button>
+                </form>
+            </div>
+
+            <div class="register-section">
+                <h2>Criar conta</h2>
+                <form action="../process/verificarEmail.php" method="POST">
+                    <input type="email" name="email" placeholder="Informe seu e-mail" class="input-field" required>
+
+                    <?php if (isset($_GET['erro']) && $_GET['erro'] === 'email'): ?>
+                    <p style="color: red; text-align: center;">E-mail já cadastrado. Faça login ou use outro e-mail.</p>
+                    <?php endif; ?>
+
+                    <button type="submit" class="btn green">PROSSEGUIR</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <footer>
+        <div class="footer-content">
+            <p>CENTRAL DE RELACIONAMENTO</p>
+        </div>
+        <p class="copyright">copyright © 2025 - www.Eleganceetux.com.br, Todos os direitos reservados.O conteúdo, design
+            e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos
+            autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por
+            escrito dos detentores dos direitos.</p>
+    </footer>
+</body>
+
+</html>
