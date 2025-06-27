@@ -1,0 +1,163 @@
+<!-- 
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_usuario'])) {
+    // Usuário não está logado, redireciona para login
+    header('Location: ../login/index.html');
+    exit();
+}
+
+// Pega o nome/email do usuário para mostrar no dashboard (pode adaptar para pegar nome real)
+$usuario = $_SESSION['email_usuario'];
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas as categorias</title>
+    <link rel="stylesheet" href="listadesejos.css" />
+    <link rel="icon" href="imagens/aliancas.png" type="image/x-icon">
+    <style>
+        .cadastroElogin {
+            padding: 12.5px 30px;
+            border: 0;
+            border-radius: 100px;
+            background-color: #2ba8fb;
+            color: #ffffff;
+            font-weight: Bold;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="menu.js"></script>
+    <!--AQUI COMEÇA O MENU -->
+    <div class="navbar show-menu">
+        <div class="header-inner-content">
+            <img src="" alt="">
+            <h1 class="logo"><a href="index.html">ÉLEGANCE<span> ET LUXE</span></a></h1>
+            <!-- PARA MUDAR DE COR DEPOIS -->
+            <nav>
+                <ul>
+                    <li><a href="todascategorias.html">Todas as categorias</a></li>
+                    <li><a href="curtos.html">Curtos</a></li>
+                    <li><a href="longos.html">Longo</a></li>
+                    <li><a href="ternos.html">Ternos</a></li>
+                    <li><a href="acessorios.html">Acessórios</a></li>
+
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <a href="carrinho_cliente.html"><img src="imagens/cart.png" alt="icone do carrinho"></a>
+                <a href="perfil.html"><img src="imagens/perfil.png" alt="icone do perfil"></a>
+                <button class="cadastroElogin"><a href="cadastrousuario/cadastro.html">Cadastro</a></button>
+                <button class="cadastroElogin"><a href="login/index.php">Login</a></button>
+                <img src="imagens/menu.png" alt="" class="menu-button">
+            </div>
+        </div>
+    </div>
+    <!--AQUI TERMINA O MENU -->
+    <div>
+        <div class="page-iner-content">
+            <h2 class="section title">Todos os produtos</h2>
+            <div class="subtitle-underline"></div>
+            <div class="cols cols-4">]
+                <!-- Produtos (Lista de Desejos) -->
+                <div class="product" id="wishlistProducts">
+                    <!-- Os itens serão inseridos aqui dinamicamente pelo JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript para carregar e gerenciar a wishlist -->
+    <script>
+        function loadWishlist() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const productsDiv = document.getElementById('wishlistProducts');
+            console.log('Conteúdo do localStorage (wishlist):', wishlist); // Depuração
+
+            if (wishlist.length === 0) {
+                productsDiv.innerHTML = '<p>Sua lista de desejos está vazia.</p>';
+                return;
+            }
+
+            productsDiv.innerHTML = ''; // Limpa o conteúdo antes de adicionar
+            wishlist.forEach(item => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h4>${item.name}</h4>
+                    <p>${item.price}</p>
+                    <button class="reserve-btn" onclick="removeFromWishlist('${item.id}')">Remover dos Desejos</button>
+                `;
+                productsDiv.appendChild(productCard);
+            });
+        }
+
+        function removeFromWishlist(itemId) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist = wishlist.filter(item => item.id !== itemId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert('Item removido da lista de desejos!');
+            loadWishlist();
+        }
+
+        // Carrega a wishlist ao carregar a página
+        window.onload = loadWishlist;
+    </script>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5561985555581" target="_blank">
+        <img src="imagens/wats.PNG" alt="WhatsApp"
+            style="position: fixed; bottom: 60px; right: 20px; width: 120px; height: 120px;">
+    </a>
+
+    <!-- JavaScript para gerenciar a wishlist -->
+    <script>
+        function addToWishlist(product) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const item = {
+                id: product.getAttribute('data-id'),
+                name: product.querySelector('h4').textContent,
+                price: product.querySelector('p:nth-child(3)').textContent,
+                image: product.querySelector('img').src
+            };
+            console.log('Tentando adicionar:', item); // Depuração
+            console.log('Wishlist atual:', wishlist);
+
+            // Verifica duplicatas pelo ID
+            if (!wishlist.some(existingItem => existingItem.id === item.id)) {
+                wishlist.push(item);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                console.log('Wishlist após adição:', JSON.parse(localStorage.getItem('wishlist')));
+                alert('Item adicionado à lista de desejos!');
+            } else {
+                console.log('Item já existe:', item);
+                alert('Este item já está na lista de desejos!');
+            }
+        }
+    </script>
+
+    <br><br><br><br><br>
+
+    <footer>
+        <div class="footer-content">
+            <p>CENTRAL DE RELACIONAMENTO</p>
+        </div>
+        <p class="copyright">copyright © 2025 - www.Eleganceetux.com.br, Todos os direitos reservados.O conteúdo, design
+            e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos
+            autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por
+            escrito dos detentores dos direitos.</p>
+    </footer>
+</body>
+
+</html>

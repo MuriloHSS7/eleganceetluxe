@@ -1,35 +1,37 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Parte de cima*/
-.header-inner-content{
+.header-inner-content {
     max-width: 1300px;
-    margin-left: auto;  
+    margin-left: auto;
     margin-right: auto;
 }
 
-.header-inner-content a{
+.header-inner-content a {
     color: inherit;
     text-decoration: none;
 }
 
 
-.navbar{
+.navbar {
     background-color: #81c784;
     padding: 1rem;
-    position: sticky; /*mantem a organização */
+    position: sticky;
+    /*mantem a organização */
     top: 0;
-    box-shadow: 10px 0px 10px #81c784; /* uma pequena sombra*/
+    box-shadow: 10px 0px 10px #81c784;
+    /* uma pequena sombra*/
 }
 
-.navbar>div{
+.navbar>div {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,11 +39,11 @@ body{
 }
 
 /* Logo*/
-.logo{
+.logo {
     color: #255316;
 }
 
-.logo span{
+.logo span {
     color: #e6c10a;
 }
 
@@ -50,22 +52,25 @@ body{
 
 .slider {
     margin: 0 auto;
-    width: 100%; /* Use 100% para ser responsivo */
- /* Limite o tamanho em telas grandes */
+    width: 100%;
+    /* Use 100% para ser responsivo */
+    /* Limite o tamanho em telas grandes */
     height: 100%;
     overflow: hidden;
- /* Deixa o slider mais "achatado". Ajuste os números como quiser! */
-    position: relative; /* Necessário para os botões de navegação */
+    /* Deixa o slider mais "achatado". Ajuste os números como quiser! */
+    position: relative;
+    /* Necessário para os botões de navegação */
 }
 
 .slides {
     width: 1905%;
-    width: 1080px; /* 4 imagens */
+    width: 1080px;
+    /* 4 imagens */
     display: flex;
 }
 
 
-.slides input{
+.slides input {
     display: none;
 }
 
@@ -76,12 +81,12 @@ body{
 }
 
 
-.slide img{
+.slide img {
     width: 1920px;
-    
+
 }
 
-.manual-navigation{
+.manual-navigation {
     position: absolute;
     width: 1905px;
     margin-top: -100px;
@@ -89,7 +94,7 @@ body{
     justify-content: center;
 }
 
-.manual-btn{
+.manual-btn {
     border: 2px solid #fff;
     padding: 5px;
     border-radius: 10px;
@@ -97,25 +102,25 @@ body{
     transition: 1s;
 }
 
-.manual-btn:not(:last-child){
+.manual-btn:not(:last-child) {
     margin-right: 40px
 }
 
-.manual-btn:hover{
+.manual-btn:hover {
     background-color: #fff;
 }
 
-#radio1:checked ~ .first{
+#radio1:checked~.first {
     margin-left: 0%;
 
 }
 
-#radio2:checked ~ .first{
+#radio2:checked~.first {
     margin-left: -180%;
 
 }
 
-#radio3:checked ~ .first{
+#radio3:checked~.first {
     margin-left: -360%;
 
 }
@@ -125,7 +130,7 @@ body{
 
 } */
 
-.navigation-auto div{
+.navigation-auto div {
     border: 2px solid;
     padding: 5px;
     border-radius: 10px;
@@ -133,7 +138,7 @@ body{
     transition: 1s;
 }
 
-.navigation-auto{
+.navigation-auto {
     position: absolute;
     width: 1905px;
     margin-top: 405px;
@@ -141,62 +146,62 @@ body{
     justify-content: center;
 }
 
-.navigation-auto div:not(:last-child){
+.navigation-auto div:not(:last-child) {
     margin-right: 40px;
 }
 
-#radio1:checked ~.navigation-auto-btn1{
+#radio1:checked~.navigation-auto-btn1 {
     background-color: #fff;
 }
 
-#radio2:checked ~.navigation-auto-btn1{
+#radio2:checked~.navigation-auto-btn1 {
     background-color: #fff;
 }
 
-#radio3:checked ~.navigation-auto-btn1{
+#radio3:checked~.navigation-auto-btn1 {
     background-color: #fff;
 }
 
 /* Aqui termina o slide*/
 
 
-/* Mexendo na lista*/ 
-nav ul{
+/* Mexendo na lista*/
+nav ul {
     display: flex;
     list-style: none;
     align-items: center;
 }
 
-.nav-icon-container{
+.nav-icon-container {
     display: flex;
     align-items: center;
 }
 
 /* Definindo o tamanho da imgs*/
-.nav-icon-container img{
+.nav-icon-container img {
     width: 30px;
     cursor: pointer;
 }
 
 /* A img do carrinho*/
-.nav-icon-container img:first-child{
+.nav-icon-container img:first-child {
     margin-right: 1rem;
 }
 
-nav ul li{
+nav ul li {
     color: #fff;
     margin-right: 1.5rem;
     cursor: pointer;
 }
 
 /* Pequeno efeito na lista*/
-nav ul li:hover{
+nav ul li:hover {
     transform: translateY(-5px);
     transition: all 0.2s;
     font-weight: bold;
 }
 
-.menu-button{
+.menu-button {
     display: none;
 }
 
@@ -255,13 +260,13 @@ Talvez possa utilizar depois
 
 /* Responsividade para mobile*/
 
-@media (max-width: 800px){
-    .logo{
+@media (max-width: 800px) {
+    .logo {
         font-size: 1.2rem;
-    
+
     }
 
-    .menu-button{
+    .menu-button {
         display: block;
     }
 
@@ -271,7 +276,7 @@ Talvez possa utilizar depois
         padding: 1rem;
     } */
 
-    nav{
+    nav {
         position: absolute;
         background-color: #5c3d5b;
         width: 100%;
@@ -280,15 +285,15 @@ Talvez possa utilizar depois
 
     }
 
-    .show-menu nav{
+    .show-menu nav {
         display: block;
     }
 
-    nav ul{
+    nav ul {
         flex-direction: column;
     }
 
-    nav ul li{
+    nav ul li {
         text-align: center;
         padding: 0.8rem;
 
@@ -326,35 +331,35 @@ Talvez possa utilizar depois
 
 
 
-.cols-4 img{
+.cols-4 img {
     width: 100%;
     max-height: 500px;
     object-fit: cover;
     margin-bottom: 1.8rem;
 }
 
-.cols-4{
+.cols-4 {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 3.5rem;
 }
 
-.cols>div{
+.cols>div {
     cursor: pointer;
     transition: all 0.2ms;
 }
 
-.cols>*:hover{
+.cols>*:hover {
     transform: translate(-5px);
 }
 
-.section-title{
+.section-title {
     text-align: center;
     margin-top: 4rem;
     font-size: 2rem;
 }
 
-.subtitle-underline{
+.subtitle-underline {
     width: 100px;
     height: 5px;
     background-color: #333;
@@ -364,21 +369,25 @@ Talvez possa utilizar depois
 
 .page-iner-content {
     /* Adiciona um espaço generoso acima do título para separá-lo do slider */
-    margin-top: 30px; 
-    
+    margin-top: 30px;
+
     /* Centraliza o conteúdo (incluindo o h2) horizontalmente */
-    max-width: 1200px; /* Use uma largura máxima para o conteúdo principal */
+    max-width: 1200px;
+    /* Use uma largura máxima para o conteúdo principal */
     margin-left: auto;
     margin-right: auto;
-    
-    padding: 0 20px; 
+
+    padding: 0 20px;
 }
 
 .page-iner-content h2 {
-    text-align: center; /* Centraliza o texto do título */
-    
-    color: #333; /* Uma cor escura para boa legibilidade */
-    margin-bottom: 30px; /* Espaço abaixo do título, antes dos produtos */
+    text-align: center;
+    /* Centraliza o texto do título */
+
+    color: #333;
+    /* Uma cor escura para boa legibilidade */
+    margin-bottom: 30px;
+    /* Espaço abaixo do título, antes dos produtos */
 }
 
 
@@ -416,4 +425,3 @@ footer {
     font-size: 12px;
     color: #666;
 }
-
