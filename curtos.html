@@ -110,6 +110,38 @@ $usuario = $_SESSION['email_usuario'];
         </div>
     </div>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5561985555581" target="_blank">
+        <img src="imagens/wats.PNG" alt="WhatsApp"
+            style="position: fixed; bottom: 75px; right: 20px; width: 120px; height: 120px;">
+    </a>
+
+    <!-- JavaScript para gerenciar a wishlist -->
+    <script>
+        function addToWishlist(product) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const item = {
+                id: product.getAttribute('data-id'),
+                name: product.querySelector('h4').textContent,
+                price: product.querySelector('p:nth-child(3)').textContent,
+                image: product.querySelector('img').src
+            };
+            console.log('Tentando adicionar:', item); // Depuração
+            console.log('Wishlist atual:', wishlist);
+
+            // Verifica duplicatas pelo ID
+            if (!wishlist.some(existingItem => existingItem.id === item.id)) {
+                wishlist.push(item);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                console.log('Wishlist após adição:', JSON.parse(localStorage.getItem('wishlist')));
+                alert('Item adicionado à lista de desejos!');
+            } else {
+                console.log('Item já existe:', item);
+                alert('Este item já está na lista de desejos!');
+            }
+        }
+    </script>
+
     <br><br><br><br><br>
 
     <footer>
