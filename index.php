@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_usuario'])) {
+    // Usuário não está logado, redireciona para login
+    header('Location: ../login/index.html');
+    exit();
+}
+
+// Pega o nome/email do usuário para mostrar no dashboard (pode adaptar para pegar nome real)
+$usuario = $_SESSION['email_usuario'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -58,7 +73,7 @@
                 <img src="imagens/menu.png" alt="" class="menu-button">
                 <img src="imagens/menu.png" alt="" class="menu-button">
                 <button class="cadastroElogin"><a href="cadastrousuario/cadastro.html">Cadastro</a></button>
-                <button class="cadastroElogin"><a href="login/index.php">Login</a></button>
+                <button class="cadastroElogin"><a href="">Login</a></button>
             </div>
         </div>
     </div>
