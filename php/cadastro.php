@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles/cadastro.css">
 
 </head>
 
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <label class="block text-sm font-medium text-gray-700">Sexo <span class="text-red-500">*</span></label>
+                        <label class="block text-sm font-medium text-gray-700">Gênero <span class="text-red-500">*</span></label>
                         <div class="flex space-x-4 mt-1">
                             <label><input type="radio" name="genero" value="feminino" class="mr-1" required> Feminino</label>
                             <label><input type="radio" name="genero" value="masculino" class="mr-1"> Masculino</label>
