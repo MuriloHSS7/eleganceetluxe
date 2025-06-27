@@ -1,12 +1,28 @@
+<!-- 
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_usuario'])) {
+    // Usuário não está logado, redireciona para login
+    header('Location: ../login/index.html');
+    exit();
+}
+
+// Pega o nome/email do usuário para mostrar no dashboard (pode adaptar para pegar nome real)
+$usuario = $_SESSION['email_usuario'];
+?> -->
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Roupas</title>
-    <link rel="stylesheet" href="perfil.css" />
-    <link rel="icon" href="aliancas.png" type="image/x-icon">
+    <title>Vestidos longos</title>
+    <link rel="stylesheet" href="longos.css" />
+    <link rel="icon" href="imagens/aliancas.png" type="image/x-icon">
     <style>
         /* From Uiverse.io by StealthWorm */
         .btn {
@@ -187,66 +203,116 @@
 </head>
 
 <body>
-    <!-- Barra Superior -->
-    <div class="header">
-        <div class="logo">
-            <a href="index.html"> <img style="width: 50px; border-radius: 50px;" src="imagens/logocasamento.png"
-                    alt="Logo da Empresa"></a>
-        </div>
-        <div class="nav">
-            <a href="todascategorias.html">Todas as categorias</a>
-            <a href="curtos.html">Curtos</a>
-            <a href="longos.html">Longos</a>
-            <a href="ternos.html">Terno</a>
-            <a href="acessorios.html">Acessórios</a>
-        </div>
-        <div class="user-section">
-            <div class="avatar"><a href="perfil.html">👤</a></div>
-            <div class="cart"><a href="carrinho.html">🛒</a></div>
+    <script src="menu.js"></script>
+    <!--AQUI COMEÇA O MENU -->
+    <div class="navbar show-menu">
+        <div class="header-inner-content">
+            <img src="" alt="">
+            <h1 class="logo"><a href="index.html">ÉLEGANCE<span> ET LUXE</span></a></h1>
+            <!-- PARA MUDAR DE COR DEPOIS -->
+            <nav>
+                <ul>
+                    <li><a href="todascategorias.html">Todas as categorias</a></li>
+                    <li><a href="curtos.html">Curtos</a></li>
+                    <li><a href="longos.html">Longo</a></li>
+                    <li><a href="ternos.html">Ternos</a></li>
+                    <li><a href="acessorios.html">Acessórios</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <a href="carrinho_cliente.html"><img src="imagens/cart.png" alt="icone do carrinho"></a>
+                <a href="perfil.html"><img src="imagens/perfil.png" alt="icone do perfil"></a>
+                <img src="imagens/menu.png" alt="" class="menu-button">
+            </div>
         </div>
     </div>
-    <div class="products">
-        <div class="row">
-            <form method="POST" class="carrinho">
-                <h1>Reserva de produtos</h1>
-                <label for="produto" style="color:black;">Produto: </label>
-                <select name="produto_id" id="produto">
-                    <?php
+    <!--AQUI TERMINA O MENU -->
+    <div>
+        <div class="page-iner-content">
+            <h2 class="section title">Bem-vindo ao carrinho!</h2>
+            <div class="subtitle-underline"></div>
+            <div class="cols cols-4">
+
+                <div class="products">
+                    <div class="row">
+                        <form method="POST" class="carrinho">
+                            <h1>Reserva de produtos</h1>
+                            <label for="produto" style="color:black;">Produto: </label>
+                            <select name="produto_id" id="produto">
+                                <?php
                 $stmt = $pdo->query("SELECT id, nome FROM produtos");
                 while ($produto = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo "<option value='" . $produto['id'] . "'>" . htmlspecialchars($produto['nome']) . "</option>";
                 }
                 ?>
-                </select><br>
-                <label for="quantidade" style="color:black;">Quantidade: </label>
-                <input type="number" name="quantidade" id="quantidade" required><br>
-                <h2>Forma de Pagamento: </h2>
-                <select name="forma_pagamento" id="formapagamento">
-                    <option value="Cartão" id="formapagamento">Cartão</option>
-                    <option value="Dinheiro" id="formapagamento">Dinheiro</option>
-                </select><br><br>
-                <button type="submit" type="button" class="btn">
-                    <strong>FAZER RESERVA</strong>
-                    <div id="container-stars">
-                        <div id="stars"></div>
-                    </div>
+                            </select><br>
+                            <label for="quantidade" style="color:black;">Quantidade: </label>
+                            <input type="number" name="quantidade" id="quantidade" required><br>
+                            <h3>Forma de Pagamento: </h3>
+                            <select name="forma_pagamento" id="formapagamento">
+                                <option value="Cartão" id="formapagamento">Cartão</option>
+                                <option value="Dinheiro" id="formapagamento">Dinheiro</option>
+                            </select><br><br>
+                            <button type="submit" type="button" class="btn">
+                                <strong>FAZER RESERVA</strong>
+                                <div id="container-stars">
+                                    <div id="stars"></div>
+                                </div>
 
-                    <div id="glow">
-                        <div class="circle"></div>
-                        <div class="circle"></div>
+                                <div id="glow">
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                </div>
+                            </button>
+                        </form>
                     </div>
-                </button>
-            </form>
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Rodapé -->
-    <div class="footer">
-        <p>copyright © 2025 - <a href="#">www.EleganceLux.com.br</a>. Todos os direitos reservados. O conteúdo, design e
-            funcionalidade deste sistema web de empréstimo de roupas de casamentos são protegidos por direitos autorais.
-            Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por escrito
-            dos detentores dos direitos.</p>
-    </div>
+    <br><br><br><br><br><br><br>
+    <footer>
+        <div class="footer-content">
+            <p>CENTRAL DE RELACIONAMENTO</p>
+        </div>
+        <p class="copyright">copyright © 2025 - www.Eleganceetux.com.br, Todos os direitos reservados.O conteúdo, design
+            e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos
+            autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por
+            escrito dos detentores dos direitos.</p>
+    </footer>
 </body>
 
 </html>

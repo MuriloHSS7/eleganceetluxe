@@ -1,68 +1,110 @@
+<!-- 
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_usuario'])) {
+    // Usuário não está logado, redireciona para login
+    header('Location: ../login/index.html');
+    exit();
+}
+
+// Pega o nome/email do usuário para mostrar no dashboard (pode adaptar para pegar nome real)
+$usuario = $_SESSION['email_usuario'];
+?> -->
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Roupas</title>
-    <link rel="stylesheet" href="ternos.css" />
-    <link rel="icon" href="aliancas.png" type="image/x-icon">
+    <title>Vestidos longos</title>
+    <link rel="stylesheet" href="longos.css" />
+    <link rel="icon" href="imagens/aliancas.png" type="image/x-icon">
 </head>
 
 <body>
-    <!-- Barra Superior -->
-    <div class="header">
-        <a href="index.html"> <img style="width: 50px; border-radius: 50px;" src="imagens/logocasamento.png"
-                alt="Logo da Empresa"></a>
-        <div class="nav">
-            <a href="todascategorias.html">Todas as categorias</a>
-            <a href="curtos.html">Curtos</a>
-            <a href="longos.html">Longos</a>
-            <a href="acessorios.html">Acessórios</a>
-        </div>
-        <div class="user-section">
-            <div class="avatar"><a href="perfil.html">👤</a></div>
-            <div class="cart"><a href="carrinho.html">🛒</a></div>
-        </div>
-    </div>
-    <br>
-    <hr>
-    <!-- Produtos -->
-    <div class="products">
-        <div class="product-card">
-            <img src="terno1.jpg" alt="Vestido branco">
-            <h4>Terno azul escuro</h4>
-            <p>R$ 409,90 no pix</p>
-            <p>R$ 409,90 ou 2x de R$204,95 sem juros</p>
-        </div>
-        <div class="product-card">
-            <img src="terno2.jpg" alt="Vestido preto">
-            <h4>Terno preto</h4>
-            <p>R$ 219,99 no pix</p>
-            <p>R$ 219,99 ou 2x de R$110,00 sem juros</p>
-        </div>
-        <div class="product-card">
-            <img src="terno3.jpg" alt="Vestido vermelho">
-            <h4>Terno cinza escuro</h4>
-            <p>R$ 199,99 no pix</p>
-            <p>R$ 199,99 ou 2x de R$100,00 sem juros</p>
-        </div>
-        <div class="product-card">
-            <img src="terno4.jpg" alt="Terno preto">
-            <h4>Terno cinza claro</h4>
-            <p>R$ 219,99 no pix</p>
-            <p>R$ 219,99 ou 2x de R$110,00 sem juros</p>
+    <script src="menu.js"></script>
+    <!--AQUI COMEÇA O MENU -->
+    <div class="navbar show-menu">
+        <div class="header-inner-content">
+            <img src="" alt="">
+            <h1 class="logo">ÉLEGANCE<span> ET LUXE</span></h1> <!-- PARA MUDAR DE COR DEPOIS -->
+            <nav>
+                <ul>
+                    <li><a href="todascategorias.html">Todas as categorias</a></li>
+                    <li><a href="curtos.html">Curtos</a></li>
+                    <li><a href="longos.html">Longo</a></li>
+                    <li><a href="ternos.html">Ternos</a></li>
+                    <li><a href="acessorios.html">Acessórios</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <a href="carrinho_cliente.html"><img src="imagens/cart.png" alt="icone do carrinho"></a>
+                <a href="perfil.html"><img src="imagens/perfil.png" alt="icone do perfil"></a>
+                <img src="imagens/menu.png" alt="" class="menu-button">
+            </div>
         </div>
     </div>
+    <!--AQUI TERMINA O MENU -->
+    <div>
+        <div class="page-iner-content">
+            <h2 class="section title">Todos os produtos</h2>
+            <div class="subtitle-underline"></div>
+            <div class="cols cols-4">
+                <div class="product">
+                    <img src="imagens/terno1.jpg">
+                    <h4>Terno azul escuro</h4>
+                    <p>R$ 319,99 no pix</p>
+                    <p>R$ 319,99 ou 2x de R$160,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno2.jpg">
+                    <h4>Terno preto</h4>
+                    <p>R$ 69,99 no pix</p>
+                    <p>R$ 69,99 ou 2x de R$35,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno3.jpg">
+                    <h4>Terno cinza escuro</h4>
+                    <p>R$ 169,99 no pix</p>
+                    <p>R$ 169,99 ou 2x de R$85,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno4.jpg">
+                    <h4>Terno cinza claro</h4>
+                    <p>R$ 29,99 no pix</p>
+                    <p>R$ 29,99 ou 2x de R$15,00 sem juros</p>
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Rodapé -->
-    <div class="footer">
-        <p>copyright © 2025 - <a href="#">www.EleganceLux.com.br</a>. Todos os direitos reservados. O conteúdo, design e
-            funcionalidade deste sistema web de empréstimo de roupas de casamentos são protegidos por direitos autorais.
-            Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por escrito
-            dos detentores dos direitos.</p>
-    </div>
+    <br><br><br><br><br>
+
+    <footer>
+        <div class="footer-content">
+            <p>CENTRAL DE RELACIONAMENTO</p>
+        </div>
+        <p class="copyright">copyright © 2025 - www.Eleganceetux.com.br, Todos os direitos reservados.O conteúdo, design
+            e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos
+            autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por
+            escrito dos detentores dos direitos.</p>
+    </footer>
 </body>
 
 </html>
