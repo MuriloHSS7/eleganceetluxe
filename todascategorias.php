@@ -1,0 +1,170 @@
+<!-- 
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_usuario'])) {
+    // Usuário não está logado, redireciona para login
+    header('Location: ../login/index.html');
+    exit();
+}
+
+// Pega o nome/email do usuário para mostrar no dashboard (pode adaptar para pegar nome real)
+$usuario = $_SESSION['email_usuario'];
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas as categorias</title>
+    <link rel="stylesheet" href="stylehome.css" />
+    <link rel="icon" href="imagens/aliancas.png" type="image/x-icon">
+</head>
+
+<body>
+    <script src="menu.js"></script>
+    <!--AQUI COMEÇA O MENU -->
+    <div class="navbar show-menu">
+        <div class="header-inner-content">
+            <img src="" alt="">
+            <h1 class="logo">ÉLEGANCE<span> ET LUXE</span></h1> <!-- PARA MUDAR DE COR DEPOIS -->
+            <nav>
+                <ul>
+                    <li><a href="todascategorias.html">Todas as categorias</a></li>
+                    <li><a href="curtos.html">Curtos</a></li>
+                    <li><a href="longos.html">Longo</a></li>
+                    <li><a href="ternos.html">Ternos</a></li>
+                    <li><a href="acessorios.html">Acessórios</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <a href="carrinho_cliente.html"><img src="imagens/cart.png" alt="icone do carrinho"></a>
+                <a href="perfil.html"><img src="imagens/perfil.png" alt="icone do perfil"></a>
+                <img src="imagens/menu.png" alt="" class="menu-button">
+            </div>
+        </div>
+    </div>
+    <!--AQUI TERMINA O MENU -->
+    <div>
+        <div class="page-iner-content">
+            <h2 class="section title">Todos os produtos</h2>
+            <div class="subtitle-underline"></div>
+            <div class="cols cols-4">
+                <div class="product">
+                    <img src="imagens/vestidocurto1.jpeg" alt="Vestido branco">
+                    <h4>Vestido curto branco</h4>
+                    <p>R$ 409,90 no pix</p>
+                    <p>R$ 409,90 ou 2x de R$204,95 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/vestidocurto2.png" alt="Vestido preto">
+                    <h4>Vestido curto branco</h4>
+                    <p>R$ 219,99 no pix</p>
+                    <p>R$ 219,99 ou 2x de R$110,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/vestidocurto3.jpg" alt="Vestido vermelho">
+                    <h4>Vestido curto branco</h4>
+                    <p>R$ 199,99 no pix</p>
+                    <p>R$ 199,99 ou 2x de R$100,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/vestidocurto4.JPEG" alt="Terno preto">
+                    <h4>Vestido curto branco</h4>
+                    <p>R$ 219,99 no pix</p>
+                    <p>R$ 219,99 ou 2x de R$110,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/vestidolongo1.jpg" alt="Vestido curto vermelho">
+                    <h4>Vestido longo rose</h4>
+                    <p>R$ 119,99 no pix</p>
+                    <p>R$ 119,99 ou 2x de R$60,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/vestidolongo2.jpg">
+                    <h4>Vestido longo vinho</h4>
+                    <p>R$ 139,99 no pix</p>
+                    <p>R$ 139,99 ou 2x de R$70,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/vestidolongo3.jpg">
+                    <h4>Vestido longo vermelho</h4>
+                    <p>R$ 129,99 no pix</p>
+                    <p>R$ 129,99 ou 2x de R$65,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/vestidolongo4.jpg">
+                    <h4>Vestido longo azul bebê</h4>
+                    <p>R$ 169,99 no pix</p>
+                    <p>R$ 169,99 ou 2x de R$85,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno1.jpg">
+                    <h4>Terno azul escuro</h4>
+                    <p>R$ 319,99 no pix</p>
+                    <p>R$ 319,99 ou 2x de R$160,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno2.jpg">
+                    <h4>Terno preto</h4>
+                    <p>R$ 69,99 no pix</p>
+                    <p>R$ 69,99 ou 2x de R$35,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno3.jpg">
+                    <h4>Terno cinza escuro</h4>
+                    <p>R$ 169,99 no pix</p>
+                    <p>R$ 169,99 ou 2x de R$85,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno4.jpg">
+                    <h4>Terno cinza claro</h4>
+                    <p>R$ 29,99 no pix</p>
+                    <p>R$ 29,99 ou 2x de R$15,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/acessorio1.JPEG">
+                    <h4>Brincos em pedras de diamantes</h4>
+                    <p>R$ 29,99 no pix</p>
+                    <p>R$ 29,99 ou 2x de R$15,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/acessorio2.jpg">
+                    <h4>Cinto de couro preto</h4>
+                    <p>R$ 39,99 no pix</p>
+                    <p>R$ 39,99 ou 2x de R$20,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/acessorio3.jpg">
+                    <h4>Sapato social preto</h4>
+                    <p>R$ 79,99 no pix</p>
+                    <p>R$ 79,99 ou 2x de R$40,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/acessorio4.JPEG">
+                    <h4>Sapato de princesa branco</h4>
+                    <p>R$ 79,99 no pix</p>
+                    <p>R$ 79,99 ou 2x de R$40,00 sem juros</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br><br>
+
+    <footer>
+        <div class="footer-content">
+            <p>CENTRAL DE RELACIONAMENTO</p>
+        </div>
+        <p class="copyright">copyright © 2025 - www.Eleganceetux.com.br, Todos os direitos reservados.O conteúdo, design
+            e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos
+            autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por
+            escrito dos detentores dos direitos.</p>
+    </footer>
+</body>
+
+</html>

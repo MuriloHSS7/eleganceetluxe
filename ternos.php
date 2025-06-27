@@ -1,0 +1,110 @@
+<!-- 
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_usuario'])) {
+    // Usuário não está logado, redireciona para login
+    header('Location: ../login/index.html');
+    exit();
+}
+
+// Pega o nome/email do usuário para mostrar no dashboard (pode adaptar para pegar nome real)
+$usuario = $_SESSION['email_usuario'];
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestidos longos</title>
+    <link rel="stylesheet" href="longos.css" />
+    <link rel="icon" href="imagens/aliancas.png" type="image/x-icon">
+</head>
+
+<body>
+    <script src="menu.js"></script>
+    <!--AQUI COMEÇA O MENU -->
+    <div class="navbar show-menu">
+        <div class="header-inner-content">
+            <img src="" alt="">
+            <h1 class="logo">ÉLEGANCE<span> ET LUXE</span></h1> <!-- PARA MUDAR DE COR DEPOIS -->
+            <nav>
+                <ul>
+                    <li><a href="todascategorias.html">Todas as categorias</a></li>
+                    <li><a href="curtos.html">Curtos</a></li>
+                    <li><a href="longos.html">Longo</a></li>
+                    <li><a href="ternos.html">Ternos</a></li>
+                    <li><a href="acessorios.html">Acessórios</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <a href="carrinho_cliente.html"><img src="imagens/cart.png" alt="icone do carrinho"></a>
+                <a href="perfil.html"><img src="imagens/perfil.png" alt="icone do perfil"></a>
+                <img src="imagens/menu.png" alt="" class="menu-button">
+            </div>
+        </div>
+    </div>
+    <!--AQUI TERMINA O MENU -->
+    <div>
+        <div class="page-iner-content">
+            <h2 class="section title">Todos os produtos</h2>
+            <div class="subtitle-underline"></div>
+            <div class="cols cols-4">
+                <div class="product">
+                    <img src="imagens/terno1.jpg">
+                    <h4>Terno azul escuro</h4>
+                    <p>R$ 319,99 no pix</p>
+                    <p>R$ 319,99 ou 2x de R$160,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno2.jpg">
+                    <h4>Terno preto</h4>
+                    <p>R$ 69,99 no pix</p>
+                    <p>R$ 69,99 ou 2x de R$35,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno3.jpg">
+                    <h4>Terno cinza escuro</h4>
+                    <p>R$ 169,99 no pix</p>
+                    <p>R$ 169,99 ou 2x de R$85,00 sem juros</p>
+                </div>
+                <div class="product">
+                    <img src="imagens/terno4.jpg">
+                    <h4>Terno cinza claro</h4>
+                    <p>R$ 29,99 no pix</p>
+                    <p>R$ 29,99 ou 2x de R$15,00 sem juros</p>
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div>
+                <div class="product">
+
+                </div><br><br>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br><br>
+
+    <footer>
+        <div class="footer-content">
+            <p>CENTRAL DE RELACIONAMENTO</p>
+        </div>
+        <p class="copyright">copyright © 2025 - www.Eleganceetux.com.br, Todos os direitos reservados.O conteúdo, design
+            e funcionalidades deste sistema web de empréstimo de roupas de casamento são protegidos por direitos
+            autorais. Nenhuma parte deste site pode ser reproduzida, distribuída ou utilizada sem permissão expressa por
+            escrito dos detentores dos direitos.</p>
+    </footer>
+</body>
+
+</html>
