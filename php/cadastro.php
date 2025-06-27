@@ -1,3 +1,18 @@
+<!-- 
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['email_usuario'])) {
+    // Usuário não está logado, redireciona para login
+    header('Location: ../html/login.html');
+    exit();
+}
+
+// Pega o nome/email do usuário para mostrar no dashboard (pode adaptar para pegar nome real)
+$usuario = $_SESSION['email_usuario'];
+?> -->
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
