@@ -65,41 +65,43 @@ $usuario = $_SESSION['email_usuario'];
         </div>
     </div>
     <!--AQUI TERMINA O MENU -->
-    <div>
-        <div class="page-iner-content">
-            <h2 class="section title">Todos os produtos</h2>
-            <div class="subtitle-underline"></div>
-            <div class="cols cols-4">
-                <!-- Produtos (Lista de Desejos) -->
-                <div class="product" id="wishlistProducts">
-                    <!-- Os itens serão inseridos aqui dinamicamente pelo JavaScript -->
-                </div>
-            </div>
-        </div>
+    <!-- Main Content -->
+    <div class="page-inner-content">
+        <h2 class="section-title">Lista de Desejos</h2>
+        <div class="subtitle-underline"></div>
+        <div class="cols cols-4" id="wishlistProducts"></div>
     </div>
-    <!-- JavaScript para carregar e gerenciar a wishlist -->
+
+    <!-- JavaScript for Wishlist -->
     <script>
         function loadWishlist() {
             const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
             const productsDiv = document.getElementById('wishlistProducts');
-            console.log('Conteúdo do localStorage (wishlist):', wishlist); // Depuração
+            console.log('Wishlist:', wishlist); // Debug
+
+            // Clear all content to ensure no residual divs
+            productsDiv.innerHTML = '';
 
             if (wishlist.length === 0) {
-                productsDiv.innerHTML = '<p>Sua lista de desejos está vazia.</p>';
+                productsDiv.innerHTML = '<p class="empty-wishlist">Sua lista de desejos está vazia.</p>';
                 return;
             }
 
-            productsDiv.innerHTML = ''; // Limpa o conteúdo antes de adicionar
             wishlist.forEach(item => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}">
-                    <h4>${item.name}</h4>
-                    <p>${item.price}</p>
-                    <button class="reserve-btn" onclick="removeFromWishlist('${item.id}')">Remover dos Desejos</button>
-                `;
-                productsDiv.appendChild(productCard);
+                // Validate item and ensure image is valid
+                if (item.id && item.image && item.name && item.price && item.image.includes('imagens')) {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <h4>${item.name}</h4>
+                        <p>${item.price}</p>
+                        <button class="reserve-btn" onclick="removeFromWishlist('${item.id}')">Remover dos Desejos</button>
+                    `;
+                    productsDiv.appendChild(productCard);
+                } else {
+                    console.warn('Item inválido ou imagem incorreta na wishlist:', item);
+                }
             });
         }
 
@@ -111,14 +113,35 @@ $usuario = $_SESSION['email_usuario'];
             loadWishlist();
         }
 
-        // Carrega a wishlist ao carregar a página
+        function addToWishlist(product) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const item = {
+                id: product.getAttribute('data-id') || `product-${Date.now()}`, // Unique fallback ID
+                name: product.querySelector('h4')?.textContent || 'Produto sem nome',
+                price: product.querySelector('p:nth-child(3)')?.textContent || 'Preço não disponível',
+                image: product.querySelector('img')?.src || '' // Capture the correct image source
+            };
+            console.log('Adicionando item:', item); // Debug
+
+            // Validate and check for duplicates
+            if (item.id && item.image && item.image.includes('imagens') && !wishlist.some(existingItem => existingItem.id === item.id)) {
+                wishlist.push(item);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                alert('Item adicionado à lista de desejos!');
+            } else {
+                console.log('Item já existe ou imagem inválida:', item);
+                alert('Este item já está na lista de desejos ou a imagem é inválida!');
+            }
+        }
+
+        // Load wishlist on page load
         window.onload = loadWishlist;
     </script>
 
     <!-- WhatsApp Button -->
     <a href="https://wa.me/5561985555581" target="_blank">
-        <img src="../imagens/wats.PNG" alt="WhatsApp"
-            style="position: fixed; bottom: 60px; right: 20px; width: 120px; height: 120px;">
+        <img src="imagens/wats.PNG" alt="WhatsApp"
+            style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;">
     </a>
 
     <!-- JavaScript para gerenciar a wishlist -->
